@@ -1,7 +1,7 @@
 // Timeline runner. Walks through TIMELINE entries in order, dispatching each
 // at its scheduled (scaled) time. Supports play/pause/restart/speed changes.
 
-import { getState, setState, clearState } from '../state.js'
+import { getState, setState } from '../state.js'
 import { logVisit } from '../supabase.js'
 import { TIMELINE } from './timeline.js'
 
@@ -34,8 +34,8 @@ function getElapsed() {
 }
 
 export function startDemo() {
-  // Fresh state every time — no stale localStorage from a previous run.
-  clearState()
+  // Reset only the viewer-specific state. Keep posters + schedule that
+  // syncData loaded — clearing them would leave the gallery empty.
   setState({
     attendee: DEMO_ATTENDEE,
     eventPhase: 'session',
