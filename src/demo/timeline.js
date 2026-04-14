@@ -122,7 +122,12 @@ export const TIMELINE = [
     label: 'log visit',
     text: 'Counts toward your 3 to unlock voting. Works offline \u2014 the modal never blocks on a network call.',
     duration: 5000 },
+  { t: 113500, type: 'log-visit', poster: 13 },
   { t: 114300, type: 'close-modal' },
+  { t: 114800, type: 'prompt-action',
+    text: 'Your turn \u2014 tap 2 more posters & log visits to unlock voting',
+    condition: 'visits>=3',
+    timeoutMs: 90000 },
 
   // ═══ 5. 2:00 PM \u2014 Voting opens up ════════════════════════════
   { t: 115500, type: 'mode', mode: 'vote' },
@@ -139,6 +144,10 @@ export const TIMELINE = [
     label: 'tap to rank',
     text: 'Tap once = 1st pick, again = 2nd, again = 3rd. Tap a picked card to drop it. Max 3.',
     duration: 5000 },
+  { t: 139200, type: 'prompt-action',
+    text: 'Your turn \u2014 rank your top 3, then hit Submit',
+    condition: 'votes==3',
+    timeoutMs: 90000 },
 
   // ═══ 6. 2:30 PM \u2014 Talks begin, take a seat ═════════════════════
   { t: 139500, type: 'mode', mode: 'confirm' },

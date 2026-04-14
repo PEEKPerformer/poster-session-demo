@@ -5,7 +5,7 @@
 // Each run randomizes the viewer's codename and the ambient actors so
 // repeat viewings feel different.
 
-import { getState, setState } from '../state.js'
+import { getState, setState, subscribe } from '../state.js'
 import { TIMELINE as BASE_TIMELINE } from './timeline.js'
 import { CODENAME_POOL, getCodeFact } from '../lib/codename-facts.js'
 import { staticAttendees } from '../data/static.js'
@@ -239,6 +239,25 @@ function handleEvent(ev) {
       break
     }
 
+    case 'log-visit': {
+      // Tour-driven visit log (used to seed visits[1] before prompting the
+      // viewer to log 2 more themselves).
+      const next = [...getState().visits]
+      if (!next.includes(ev.poster)) next.push(ev.poster)
+      setState({ visits: next })
+      break
+    }
+
+    case 'prompt-action': {
+      // Pause tour, show a sticky prompt, resume when predicate(state) is true
+      // (or when viewer hits Skip, or after timeoutMs).
+      pauseElapsedTimer()
+      showActionPrompt(ev.text, ev.condition, ev.timeoutMs || 90_000, () => {
+        resumeElapsedTimer()
+      })
+      break
+    }
+
     case 'open-modal': {
       // Call the poster-card component API directly rather than clicking an
       // off-screen card — more robust and doesn't depend on DOM layout.
@@ -329,7 +348,10 @@ export function attachInteractionPause() {
   document.addEventListener('pointerdown', (e) => {
     if (paused) return
     // Don't pause on interactions with the demo controls themselves.
-    if (e.target.closest('.demo-banner, .demo-tabs, .demo-resume-chip, .demo-cta-overlay, .demo-trivia')) return
+    if (e.target.closest('.demo-banner, .demo-tabs, .demo-resume-chip, .demo-cta-overlay, .demo-trivia, .demo-prompt')) return
+    // If the tour is asking the viewer to do something (semi-interactive
+    // checkpoint), don't auto-pause \u2014 the viewer IS supposed to interact.
+    if (document.querySelector('.demo-prompt')) return
     pauseDemo()
   }, { passive: true })
 }
@@ -415,4 +437,47 @@ function showSceneCard({ text, duration = 2000 }) {
     card.classList.remove('demo-scene-card--visible')
     setTimeout(() => card.remove(), 400)
   }, duration)
+}
+
+// ── Interactive prompts (semi-interactive moments) ────────────
+
+const PREDICATES = {
+  'visits>=3':       s => (s.visits?.length || 0) >= 3,
+  'visits>=2-more':  s => (s.visits?.length || 0) >= 3, // demo seeds 1 visit, prompt is for 2 more
+  'votes==3':        s => (s.myVotes?.length || 0) === 3,
+}
+
+function showActionPrompt(text, conditionKey, timeoutMs, onComplete) {
+  document.querySelectorAll('.demo-prompt').forEach(n => n.remove())
+  const prompt = document.createElement('div')
+  prompt.className = 'demo-prompt'
+  prompt.innerHTML = `
+    <span class="demo-prompt__pulse"></span>
+    <span class="demo-prompt__text">${text}</span>
+    <button type="button" class="demo-prompt__skip">Skip \u2192</button>
+  `
+  document.body.appendChild(prompt)
+  requestAnimationFrame(() => prompt.classList.add('demo-prompt--visible'))
+
+  const predicate = PREDICATES[conditionKey] || (() => false)
+  let unsub = null
+  let timeoutId = null
+
+  const cleanup = () => {
+    if (unsub) unsub()
+    if (timeoutId) clearTimeout(timeoutId)
+    prompt.classList.remove('demo-prompt--visible')
+    setTimeout(() => prompt.remove(), 250)
+    onComplete()
+  }
+
+  // Check immediately in case condition is already satisfied.
+  if (predicate(getState())) {
+    setTimeout(cleanup, 200)
+    return
+  }
+
+  unsub = subscribe(state => { if (predicate(state)) cleanup() })
+  prompt.querySelector('.demo-prompt__skip').addEventListener('click', cleanup)
+  timeoutId = setTimeout(cleanup, timeoutMs)
 }
