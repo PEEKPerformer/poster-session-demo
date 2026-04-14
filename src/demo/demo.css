@@ -336,3 +336,241 @@ body.has-demo-banner { padding-top: 72px; }
   margin: 0;
 }
 .demo-cta-overlay__footnote a { color: #ffae00; }
+
+/* ── CTA form ────────────────────────────────────────── */
+.demo-cta-form {
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.demo-cta-form__intro { margin: 0 0 0.3rem; font-size: 0.85rem; color: #bcc3de; }
+.demo-cta-form__field { display: flex; flex-direction: column; gap: 0.3rem; }
+.demo-cta-form__field > span { font-size: 0.8rem; color: #8892b0; font-weight: 600; }
+.demo-cta-form__field input,
+.demo-cta-form__field textarea {
+  background: rgba(5, 8, 18, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #dfe5ff;
+  padding: 0.55rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+}
+.demo-cta-form__field input:focus,
+.demo-cta-form__field textarea:focus { border-color: #ffae00; }
+.demo-cta-form__status { font-size: 0.8rem; color: #8892b0; margin: 0; }
+.demo-cta-form__status--err { color: #ff8e8e; }
+.demo-cta-form__success { color: #7fd29a; font-weight: 600; padding: 0.5rem 0; }
+
+/* ── Tabs row ────────────────────────────────────────── */
+body.has-demo-tabs.has-demo-banner { padding-top: 128px; }
+@media (max-width: 640px) {
+  body.has-demo-tabs.has-demo-banner { padding-top: 172px; }
+}
+
+.demo-tabs {
+  position: fixed;
+  top: 72px; /* just below the banner; overridden at mobile via media query */
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(11, 18, 32, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.45rem 1rem;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 640px) {
+  .demo-tabs { top: 110px; }
+}
+.demo-tabs__label {
+  color: #8892b0;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0 0.4rem;
+}
+.demo-tab {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #dfe5ff;
+  border-radius: 6px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+.demo-tab:hover { border-color: rgba(255, 174, 0, 0.5); }
+.demo-tab--active {
+  background: rgba(255, 174, 0, 0.15);
+  border-color: rgba(255, 174, 0, 0.7);
+  color: #ffae00;
+}
+.demo-tab__label { font-size: 0.85rem; font-weight: 700; }
+.demo-tab__sub { font-size: 0.68rem; color: #8892b0; font-weight: 500; }
+.demo-tab--active .demo-tab__sub { color: #ffcd60; }
+
+/* ── Highlight spotlight + tooltip ──────────────────── */
+.demo-highlight-spot {
+  position: absolute;
+  z-index: 960;
+  border-radius: 8px;
+  box-shadow: 0 0 0 9999px rgba(5, 8, 18, 0.7),
+              0 0 0 2px rgba(255, 174, 0, 0.9) inset;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.demo-highlight-spot--visible { opacity: 1; }
+
+.demo-highlight-tip {
+  position: absolute;
+  z-index: 961;
+  max-width: 280px;
+  background: linear-gradient(140deg, #11182a 0%, #1a2240 100%);
+  border: 1px solid rgba(255, 174, 0, 0.5);
+  border-radius: 8px;
+  padding: 0.7rem 0.85rem;
+  color: #dfe5ff;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+.demo-highlight-tip--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.demo-highlight-tip__label {
+  display: inline-block;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffae00;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.demo-highlight-tip__body { font-size: 0.88rem; line-height: 1.4; }
+
+/* ── Resume chip ─────────────────────────────────────── */
+.demo-resume-chip {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translate(-50%, 16px);
+  z-index: 1080;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: #ffae00;
+  color: #0b1220;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+.demo-resume-chip--visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ── Trivia overlay ──────────────────────────────────── */
+.demo-trivia {
+  position: fixed;
+  inset: 0;
+  z-index: 1070;
+  background: rgba(5, 8, 18, 0.88);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.demo-trivia--visible { opacity: 1; }
+.demo-trivia__card {
+  width: 100%;
+  max-width: 520px;
+  background: linear-gradient(140deg, #11182a 0%, #1a2240 100%);
+  border: 1px solid rgba(255, 174, 0, 0.4);
+  border-radius: 14px;
+  padding: 1.5rem;
+  color: #dfe5ff;
+}
+.demo-trivia__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.9rem;
+}
+.demo-trivia__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffae00;
+  font-weight: 700;
+}
+.demo-trivia__progress { font-size: 0.75rem; color: #8892b0; }
+.demo-trivia__fact {
+  font-size: 1.05rem;
+  line-height: 1.4;
+  margin: 0 0 1rem;
+  color: #dfe5ff;
+}
+.demo-trivia__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.demo-trivia__opt {
+  padding: 0.7rem 0.4rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #dfe5ff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.demo-trivia__opt:hover { border-color: rgba(255, 174, 0, 0.5); }
+.demo-trivia__opt--correct {
+  background: rgba(127, 210, 154, 0.18);
+  border-color: rgba(127, 210, 154, 0.6);
+  color: #7fd29a;
+}
+.demo-trivia__opt--wrong {
+  background: rgba(255, 120, 120, 0.18);
+  border-color: rgba(255, 120, 120, 0.6);
+  color: #ff9e9e;
+}
+.demo-trivia__feedback {
+  min-height: 1.3em;
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+.demo-trivia__feedback--ok { color: #7fd29a; }
+.demo-trivia__feedback--show { color: #ffcd60; }
+.demo-trivia__hint { font-size: 0.75rem; color: #8892b0; margin: 0; }

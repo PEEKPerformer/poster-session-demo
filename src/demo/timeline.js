@@ -1,78 +1,88 @@
-// Cinematic demo timeline — ~3 minutes, paced so each scene breathes.
-// Drawn from real Spring 2026 event data: top-halo posters (#2, #5, #7,
-// #13, #18), real actor codenames, real winners (Zhiming Li #13 Distinguished,
-// Mohak Desai #22 Peer Impact), real vote patterns (17 / 16 / 10 point scores).
+// Scripted scene timeline — drives the guided tour. Each entry runs at its
+// scheduled time (in ms). Non-'mode' events use the current mode's view.
+// Real Spring 2026 numbers anchor every scene.
 
 export const TIMELINE = [
-  // ═══ Scene 0: Cold open title card ═══════════════════════════
+  // ═════════ 0. Cold open ══════════════════════════════════════
   { t: 0, type: 'title-card',
     lines: [
       'NERPG Spring 2026',
       'UConn — 117 attendees · 23 posters · 108 votes',
     ],
-    sub: 'watch it play out in 3 minutes',
+    sub: 'Let it play, or touch anything to pause · Use tabs to jump between views',
+    duration: 5000 },
+
+  // ═════════ 1. Arrive — polymer codename identity ═════════════
+  { t: 5000, type: 'mode', mode: 'gallery' },
+  { t: 5400, type: 'scene-card', text: '1.  Checking in', duration: 1500 },
+  { t: 7100, type: 'welcome' },
+  { t: 9500, type: 'highlight', selector: '.welcome-fact__code', position: 'bottom',
+    label: 'your codename',
+    text: 'Every attendee gets a polymer-themed codename at check-in. No email, no password, no signup.',
+    duration: 5000 },
+  { t: 14800, type: 'highlight', selector: '.welcome-fact__text', position: 'bottom',
+    label: 'your fact',
+    text: 'Each code comes with a personalized polymer fact — a keepsake moment that doubles as trivia later.',
+    duration: 5200 },
+  { t: 20300, type: 'dismiss-welcome' },
+
+  // ═════════ 2. Explore the gallery ════════════════════════════
+  { t: 21000, type: 'scene-card', text: '2.  Exploring the gallery', duration: 1500 },
+  { t: 22500, type: 'highlight', selector: '.poster-card', position: 'right',
+    label: 'poster card',
+    text: 'Tap any card to see the full abstract, bookmark it, or log a visit.',
     duration: 4500 },
+  { t: 27300, type: 'feed', actor: '_rand_', action: 'opened poster #7 — Cannabinoid antimicrobial SAR' },
+  { t: 29500, type: 'feed', actor: '_rand_', action: 'logged a visit from Jonal Labs' },
+  { t: 31800, type: 'feed', actor: '_rand_', action: 'signed in from AirBoss (Rochester)' },
 
-  // ═══ Scene 1: Arrive — polymer codename + welcome tutorial ═══
-  { t: 4500, type: 'navigate', hash: '#/gallery' },
-  { t: 5000, type: 'scene-card', text: '1.  Arriving at check-in…', duration: 1600 },
-  { t: 6800, type: 'welcome' },
-  { t: 13500, type: 'dismiss-welcome' },
+  // ═════════ 3. Rank your top 3 ════════════════════════════════
+  { t: 34000, type: 'mode', mode: 'vote' },
+  { t: 34500, type: 'scene-card', text: '3.  Ranked ballot — top 3', duration: 1600 },
+  { t: 36500, type: 'narrator', trackAware: true, duration: 5500,
+    text: 'Ranked voting (3–2–1). You\'re voting in the {track}.' },
+  { t: 42500, type: 'narrator', duration: 4500,
+    text: 'Two award tracks run in parallel: Distinguished (industry-judged) and Peer Impact (peer-judged).' },
 
-  // ═══ Scene 2: Explore the gallery ════════════════════════════
-  { t: 14000, type: 'scene-card', text: '2.  Exploring the gallery', duration: 1400 },
-  { t: 16000, type: 'feed', actor: 'OZONE',  action: 'opened poster #7 — Cannabinoid antimicrobial SAR' },
-  { t: 18000, type: 'feed', actor: 'SPOOL',  action: 'logged a visit to poster #5' },
-  { t: 19500, type: 'open-modal', poster: 2 },
-  { t: 23000, type: 'log-visit',  poster: 2 },
-  { t: 24500, type: 'close-modal' },
-  { t: 25500, type: 'feed', actor: 'FLEX',   action: 'signed in from AirBoss (Rochester)' },
-  { t: 27500, type: 'open-modal', poster: 7 },
-  { t: 30500, type: 'log-visit',  poster: 7 },
-  { t: 32000, type: 'close-modal' },
-  { t: 33000, type: 'feed', actor: 'MBTS',   action: 'logged 8 visits from Jonal Labs' },
-  { t: 35000, type: 'open-modal', poster: 13 },
-  { t: 38500, type: 'log-visit',  poster: 13 },
-  { t: 40000, type: 'close-modal' },
-  { t: 41000, type: 'toast', kind: 'gold',   text: '✓ 3 visited — voting unlocked!' },
+  // ═════════ 4. Confirm + event in progress ════════════════════
+  { t: 47500, type: 'mode', mode: 'confirm' },
+  { t: 48000, type: 'scene-card', text: '4.  Confirmation & schedule', duration: 1500 },
+  { t: 50000, type: 'narrator', duration: 4500,
+    text: 'Attendees see the event schedule, their picks, and live stats while votes keep arriving.' },
+  { t: 54800, type: 'feed', actor: '_rand_', action: 'submitted their ranked ballot' },
+  { t: 57500, type: 'feed', actor: '_rand_', action: 'deep-dwelled 869s on poster #3' },
+  { t: 60000, type: 'feed', actor: '_rand_', action: 'voted from Jonal Labs' },
 
-  // ═══ Scene 3: Rank your top 3 ════════════════════════════════
-  { t: 43000, type: 'scene-card', text: '3.  Ranked vote — top 3', duration: 1400 },
-  { t: 44800, type: 'navigate', hash: '#/vote' },
-  { t: 47000, type: 'select', poster: 13, rank: 1 },
-  { t: 48500, type: 'select', poster: 22, rank: 2 },
-  { t: 50000, type: 'select', poster: 7,  rank: 3 },
-  { t: 52000, type: 'submit-ballot' },
-  { t: 53000, type: 'navigate', hash: '#/confirm' },
-  { t: 55000, type: 'feed', actor: 'BOND',   action: 'submitted their ranked ballot' },
-  { t: 57500, type: 'feed', actor: 'GOODY',  action: 'deep-dwelled 869s on poster #3' },
-  { t: 60000, type: 'feed', actor: 'PRENE',  action: 'submitted ballot from Jonal Labs' },
+  // ═════════ 5. Admin live dashboard ═══════════════════════════
+  { t: 62500, type: 'mode', mode: 'admin' },
+  { t: 63000, type: 'scene-card', text: '5.  The admin\'s view', duration: 1800 },
+  { t: 65000, type: 'narrator', duration: 5000,
+    text: 'Admin sees the full event live — vote counts climbing, activity feed, and the phase toggle.' },
+  { t: 70200, type: 'feed', actor: '_rand_', action: 'voted (Peer Impact)' },
+  { t: 72500, type: 'feed', actor: '_rand_', action: 'added a note to poster #18' },
+  { t: 75000, type: 'feed', actor: '_rand_', action: 'logged 16 visits total' },
+  { t: 77800, type: 'narrator', kind: 'gold', duration: 3500,
+    text: 'All 108 votes in — ready to close voting.' },
 
-  // ═══ Scene 4: Meanwhile, the admin is watching ═══════════════
-  { t: 63000, type: 'scene-card', text: '4.  Meanwhile, at the admin table…', duration: 2000 },
-  { t: 65500, type: 'switch-attendee', attendee: 'admin' },
-  { t: 66000, type: 'navigate', hash: '#/admin' },
-  { t: 70000, type: 'feed', actor: 'YIELD',  action: 'voted (Peer Impact track)' },
-  { t: 73000, type: 'feed', actor: 'TEAR',   action: 'voted' },
-  { t: 76000, type: 'feed', actor: 'SHRED',  action: 'added a note to poster #18' },
-  { t: 79000, type: 'feed', actor: 'PEEL',   action: 'logged 16 visits total' },
-  { t: 82000, type: 'feed', actor: 'SKID',   action: 'exemplar 56-min journey complete' },
+  // ═════════ 6. Results podium ═════════════════════════════════
+  { t: 81500, type: 'mode', mode: 'results' },
+  { t: 82000, type: 'scene-card', text: '6.  Winners — announced live', duration: 1800 },
+  { t: 83500, type: 'confetti' },
+  { t: 85000, type: 'narrator', kind: 'gold', duration: 4500,
+    text: 'Distinguished #1: Zhiming Li — 17 pts (4×1st-place · 2×2nd · 1×3rd).' },
+  { t: 90000, type: 'narrator', kind: 'gold', duration: 4500,
+    text: 'Peer Impact #1: Mohak Desai — 15 pts (5×1st-place).' },
+  { t: 94800, type: 'narrator', duration: 4500,
+    text: 'Both podiums render on every attendee\'s phone at the same moment.' },
 
-  // ═══ Scene 5: The phase flip ═════════════════════════════════
-  { t: 85000, type: 'scene-card', text: '5.  Admin flips to results', duration: 1600 },
-  { t: 87000, type: 'toast', kind: 'gold', text: 'All 108 votes in — closing voting' },
-  { t: 89500, type: 'click-phase-flip' },
-  { t: 90500, type: 'confetti' },
+  // ═════════ 7. Trivia — the codename callback ═════════════════
+  { t: 100000, type: 'scene-card', text: '7.  Trivia — polymer facts recap', duration: 1600 },
+  { t: 101800, type: 'trivia' },
 
-  // ═══ Scene 6: Results reveal ═════════════════════════════════
-  { t: 91500, type: 'switch-attendee', attendee: 'demo' },
-  { t: 92000, type: 'navigate', hash: '#/vote' },
-  { t: 94000, type: 'scene-card', text: '6.  Winners — announced live', duration: 1800 },
-  { t: 96500, type: 'toast', kind: 'gold', text: '🏆 Distinguished: Zhiming Li (17 pts)' },
-  { t: 101000, type: 'toast', kind: 'gold', text: '🏆 Peer Impact: Mohak Desai (15 pts)' },
-  { t: 106000, type: 'feed', actor: 'JONAL', action: 'cheering in the front row' },
-
-  // ═══ CTA ═════════════════════════════════════════════════════
-  { t: 113000, type: 'cta-overlay' },
-  { t: 165000, type: 'loop' },
+  // ═════════ 8. CTA ════════════════════════════════════════════
+  // Note: trivia pauses the timer during its ~20s run. The CTA fires
+  // as soon as trivia completes (via pauseElapsedTimer/resumeElapsedTimer
+  // in simulator). The loop entry below is the hard ceiling.
+  { t: 102000, type: 'cta-overlay' },
+  { t: 300000, type: 'loop' },
 ]

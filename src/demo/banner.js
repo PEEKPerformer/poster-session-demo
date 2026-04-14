@@ -2,8 +2,7 @@
 // label, a progress bar, play/pause/restart, speed picker, and a CTA.
 
 import { pauseDemo, resumeDemo, restartDemo, setDemoSpeed, getDemoSpeed, onSimState } from './simulator.js'
-
-const CTA_URL = 'https://bfer.land/#contact'
+import { showCtaOverlay } from './cta.js'
 
 export function mountDemoBanner() {
   const banner = document.createElement('div')
@@ -30,9 +29,9 @@ export function mountDemoBanner() {
           <option value="4">4×</option>
         </select>
       </div>
-      <a class="demo-banner__cta" href="${CTA_URL}" target="_blank" rel="noopener">
+      <button type="button" class="demo-banner__cta" data-action="cta">
         Want this for your event? &rarr;
-      </a>
+      </button>
     </div>
     <div class="demo-banner__progress"><div class="demo-banner__progress-fill"></div></div>
   `
@@ -57,6 +56,11 @@ export function mountDemoBanner() {
 
   speedSel.addEventListener('change', (e) => setDemoSpeed(parseFloat(e.target.value)))
   speedSel.value = String(getDemoSpeed())
+
+  banner.querySelector('[data-action="cta"]').addEventListener('click', () => {
+    pauseDemo()
+    showCtaOverlay()
+  })
 
   onSimState((s) => {
     toggleBtn.dataset.state = s.paused ? 'paused' : 'playing'

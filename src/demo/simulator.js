@@ -1,23 +1,33 @@
-// Timeline runner. Walks through TIMELINE entries in order, dispatching each
-// at its scheduled (scaled) time. Supports play/pause/restart/speed changes.
+// Tour runner. Walks through TIMELINE entries, delegating rendering to
+// setDemoMode (for view state) + highlight (for spotlight tooltips) +
+// showToast/showFeedItem (for ambient narration).
+//
+// Each run randomizes the viewer's codename and the ambient actors so
+// repeat viewings feel different.
 
 import { getState, setState } from '../state.js'
-import { logVisit } from '../supabase.js'
-import { TIMELINE } from './timeline.js'
+import { TIMELINE as BASE_TIMELINE } from './timeline.js'
+import { CODENAME_POOL, getCodeFact } from '../lib/codename-facts.js'
+import { staticAttendees } from '../data/static.js'
+import { setDemoMode } from './mode.js'
+import { highlight, clearHighlight } from './highlight.js'
+import { startTrivia } from './trivia.js'
 
-// Assign a real polymer codename so the welcome-overlay fact renders. CHAIN
-// is a good showcase ("A single polyisoprene chain in natural rubber...").
-const DEMO_ATTENDEE = { code: 'CHAIN', name: 'Guest', role: 'attendee' }
-const DEMO_ADMIN    = { code: 'ADMN',  name: 'Brenden Ferland', role: 'admin' }
+// Which codenames are safe demo-viewer identities — anything with a polymer
+// fact (the welcome overlay needs one) minus the admin code.
+const VIEWER_POOL = CODENAME_POOL.filter(c => !!getCodeFact(c))
 
+const ROLE_BY_CODE = Object.fromEntries(
+  staticAttendees.map(a => [a.code, a.role])
+)
+
+let activeTimeline = BASE_TIMELINE
 let timerId = null
 let startedAt = 0
-let pausedAt = 0
 let pausedElapsed = 0
 let speed = 1
 let nextIndex = 0
 let paused = false
-const selections = []
 const listeners = new Set()
 
 export function onSimState(fn) {
@@ -26,41 +36,90 @@ export function onSimState(fn) {
 }
 
 function emit() {
-  const state = { paused, speed, progress: getElapsed() / getTotal(), elapsed: getElapsed() }
+  const state = { paused, speed, progress: getElapsed() / getTotal(), elapsed: getElapsed(), nextIndex }
   listeners.forEach(fn => fn(state))
 }
 
-function getTotal() { return TIMELINE[TIMELINE.length - 1].t }
+function getTotal() { return activeTimeline[activeTimeline.length - 1].t }
 function getElapsed() {
   if (paused) return pausedElapsed
   return (performance.now() - startedAt) * speed + pausedElapsed
 }
 
+// ── Randomization ─────────────────────────────────────────────
+
+function pick(arr) { return arr[Math.floor(Math.random() * arr.length)] }
+function shuffle(arr) {
+  const out = arr.slice()
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[out[i], out[j]] = [out[j], out[i]]
+  }
+  return out
+}
+
+function chooseViewer() {
+  const code = pick(VIEWER_POOL)
+  const role = ROLE_BY_CODE[code] || 'attendee'
+  // Map presenter/student codes to student role so they vote Peer Impact
+  // (demo covers both tracks via randomness).
+  const demoRole = ['presenter', 'student'].includes(role) ? 'student' : 'attendee'
+  return { code, name: 'Guest', role: demoRole }
+}
+
+function randomizeTimeline(viewer) {
+  const actorPool = shuffle(VIEWER_POOL.filter(c => c !== viewer.code && c !== 'ADMN'))
+  let cursor = 0
+  const nextActor = () => actorPool[(cursor++) % actorPool.length]
+
+  return BASE_TIMELINE.map(ev => {
+    if (ev.type === 'feed' && ev.actor === '_rand_') {
+      return { ...ev, actor: nextActor() }
+    }
+    if (ev.type === 'narrator' && ev.trackAware) {
+      const track = viewer.role === 'student'
+        ? 'Peer Impact (student / presenter panel)'
+        : 'Distinguished (industry panel)'
+      return { ...ev, text: ev.text.replace('{track}', track) }
+    }
+    return ev
+  })
+}
+
+// ── Lifecycle ─────────────────────────────────────────────────
+
 export function startDemo() {
-  // Reset only the viewer-specific state. Keep posters + schedule that
-  // syncData loaded — clearing them would leave the gallery empty.
+  const viewer = chooseViewer()
+  window.__demoViewer = viewer
+  activeTimeline = randomizeTimeline(viewer)
+
   setState({
-    attendee: DEMO_ATTENDEE,
+    attendee: viewer,
     eventPhase: 'session',
     visits: [],
     myVotes: [],
   })
+
+  // Clean any leftover overlays from a prior run.
+  document.querySelectorAll(
+    '.welcome-overlay, .demo-title-card, .demo-scene-card, .demo-cta-overlay, .demo-trivia, .poster-modal, .demo-feed, .demo-highlight-spot, .demo-highlight-tip, .demo-resume-chip'
+  ).forEach(n => n.remove())
+  clearHighlight()
+
   nextIndex = 0
-  selections.length = 0
   pausedElapsed = 0
   paused = false
   startedAt = performance.now()
-  // Clean any lingering overlays from a previous run
-  document.querySelectorAll('.welcome-overlay, .demo-title-card, .demo-scene-card, .demo-cta-overlay, .poster-modal, .demo-feed').forEach(n => n.remove())
   loop()
 }
 
 export function pauseDemo() {
   if (paused) return
   paused = true
-  pausedAt = performance.now()
   pausedElapsed = getElapsed()
   clearTimeout(timerId)
+  clearHighlight()
+  showResumeChip()
   emit()
 }
 
@@ -68,6 +127,7 @@ export function resumeDemo() {
   if (!paused) return
   paused = false
   startedAt = performance.now()
+  hideResumeChip()
   loop()
 }
 
@@ -98,8 +158,28 @@ function handleEvent(ev) {
       showSceneCard(ev)
       break
 
+    case 'narrator':
+    case 'toast':
+      showToast(ev.text, ev.kind || 'default', ev.duration)
+      break
+
+    case 'feed':
+      showFeedItem(`${ev.actor} ${ev.action}`)
+      break
+
+    case 'mode':
+      setDemoMode(ev.mode)
+      break
+
+    case 'highlight':
+      highlight(ev.selector, ev.text, {
+        duration: ev.duration || 4500,
+        position: ev.position || 'bottom',
+        label: ev.label,
+      })
+      break
+
     case 'welcome': {
-      // Fire the app's real welcome overlay so the polymer codename + fact render.
       import('../views/auth.js').then(m => {
         const { attendee } = getState()
         m.showWelcome(attendee.name, attendee.role, attendee.code, () => {})
@@ -116,125 +196,13 @@ function handleEvent(ev) {
       break
     }
 
-    case 'switch-attendee':
-      setState({ attendee: ev.attendee === 'admin' ? DEMO_ADMIN : DEMO_ATTENDEE })
-      // Re-render current route so header/nav update for the new role
-      window.dispatchEvent(new HashChangeEvent('hashchange'))
-      break
-
-    case 'navigate':
-      if (window.location.hash !== ev.hash) {
-        window.location.hash = ev.hash
-      } else {
-        // Force re-render even if already on the target hash.
-        window.dispatchEvent(new HashChangeEvent('hashchange'))
-      }
-      break
-
-    case 'toast':
-      showToast(ev.text, ev.kind || 'default')
-      break
-
-    case 'feed':
-      showFeedItem(`${ev.actor} ${ev.action}`)
-      break
-
-    case 'open-modal': {
-      const state = getState()
-      if (window.location.hash !== '#/gallery') window.location.hash = '#/gallery'
-      setTimeout(() => {
-        const poster = state.posters.find(p => p.number === ev.poster)
-        if (!poster) return
-        const cards = document.querySelectorAll('.poster-card')
-        for (const card of cards) {
-          const title = card.querySelector('.poster-card__title')?.textContent || ''
-          if (title.startsWith(poster.title.slice(0, 20))) {
-            card.click()
-            break
-          }
-        }
-      }, 120)
-      break
-    }
-
-    case 'close-modal': {
-      const close = document.querySelector('.poster-modal__close')
-      if (close) close.click()
-      break
-    }
-
-    case 'log-visit': {
-      const state = getState()
-      const next = [...state.visits]
-      if (!next.includes(ev.poster)) next.push(ev.poster)
-      setState({ visits: next })
-      logVisit(DEMO_ATTENDEE.code, ev.poster).catch(() => {})
-      const btn = document.querySelector('.modal__log-visit')
-      if (btn && !btn.disabled) btn.click()
-      break
-    }
-
-    case 'select': {
-      selections[ev.rank - 1] = ev.poster
-      if (window.location.hash === '#/vote') {
-        const state = getState()
-        const poster = state.posters.find(p => p.number === ev.poster)
-        if (!poster) break
-        const cards = document.querySelectorAll('.poster-card')
-        for (const card of cards) {
-          const title = card.querySelector('.poster-card__title')?.textContent || ''
-          if (title.startsWith(poster.title.slice(0, 20))) {
-            card.click()
-            break
-          }
-        }
-      }
-      break
-    }
-
-    case 'submit-ballot': {
-      const picks = selections.filter(Boolean)
-      setState({
-        myVotes: picks.map((num, i) => ({ poster_number: num, rank: i + 1 })),
-      })
-      break
-    }
-
-    case 'phase':
-      // Set phaseUpdatedAt well in the past so the 45s results grace period is
-      // already expired — demo skips the "voting just closed" interstitial
-      // and jumps straight to the celebration podium.
-      setState({
-        eventPhase: ev.to,
-        phaseUpdatedAt: new Date(Date.now() - 60_000).toISOString(),
-      })
-      window.dispatchEvent(new HashChangeEvent('hashchange'))
-      break
-
-    case 'click-phase-flip': {
-      const btn = document.querySelector('[data-phase="results"]')
-                || Array.from(document.querySelectorAll('button')).find(b => /flip|results/i.test(b.textContent) && !b.disabled)
-      if (btn) {
-        btn.click()
-        setTimeout(() => {
-          const confirm = document.querySelector('#phase-confirm')
-          if (confirm) confirm.click()
-          setState({
-            eventPhase: 'results',
-            phaseUpdatedAt: new Date(Date.now() - 60_000).toISOString(),
-          })
-        }, 400)
-      } else {
-        setState({
-          eventPhase: 'results',
-          phaseUpdatedAt: new Date(Date.now() - 60_000).toISOString(),
-        })
-      }
-      break
-    }
-
     case 'confetti':
       import('../lib/confetti.js').then(m => m.launchConfetti()).catch(() => {})
+      break
+
+    case 'trivia':
+      pauseElapsedTimer()
+      startTrivia(() => resumeElapsedTimer())
       break
 
     case 'cta-overlay':
@@ -247,23 +215,72 @@ function handleEvent(ev) {
   }
 }
 
+// ── Tour loop ─────────────────────────────────────────────────
+
+let loopPausedExternally = false
+function pauseElapsedTimer() {
+  // Used by sub-flows like trivia that should freeze the timeline while they run.
+  loopPausedExternally = true
+  pausedElapsed = getElapsed()
+  clearTimeout(timerId)
+}
+function resumeElapsedTimer() {
+  loopPausedExternally = false
+  startedAt = performance.now()
+  loop()
+}
+
 function loop() {
-  if (paused) return
+  if (paused || loopPausedExternally) return
   const elapsed = getElapsed()
-  while (nextIndex < TIMELINE.length && TIMELINE[nextIndex].t <= elapsed) {
-    try { handleEvent(TIMELINE[nextIndex]) }
-    catch (e) { console.warn('[demo] event failed:', TIMELINE[nextIndex], e) }
+  while (nextIndex < activeTimeline.length && activeTimeline[nextIndex].t <= elapsed) {
+    try { handleEvent(activeTimeline[nextIndex]) }
+    catch (e) { console.warn('[demo] event failed:', activeTimeline[nextIndex], e) }
     nextIndex++
   }
   emit()
-  if (nextIndex < TIMELINE.length) {
+  if (nextIndex < activeTimeline.length) {
     timerId = setTimeout(loop, 33)
+  }
+}
+
+// ── Pause-on-interaction ──────────────────────────────────────
+
+// Real user pointerdowns (distinct from simulator-synthesized clicks, which
+// don't emit pointer events) pause the tour so the viewer can explore.
+export function attachInteractionPause() {
+  document.addEventListener('pointerdown', (e) => {
+    if (paused) return
+    // Don't pause on interactions with the demo controls themselves.
+    if (e.target.closest('.demo-banner, .demo-tabs, .demo-resume-chip, .demo-cta-overlay, .demo-trivia')) return
+    pauseDemo()
+  }, { passive: true })
+}
+
+function showResumeChip() {
+  if (document.querySelector('.demo-resume-chip')) return
+  const chip = document.createElement('button')
+  chip.type = 'button'
+  chip.className = 'demo-resume-chip'
+  chip.innerHTML = `
+    <svg width="12" height="12" viewBox="0 0 14 14" fill="currentColor"><path d="M3 2v10l8-5z"/></svg>
+    <span>Resume tour</span>
+  `
+  chip.addEventListener('click', () => resumeDemo())
+  document.body.appendChild(chip)
+  requestAnimationFrame(() => chip.classList.add('demo-resume-chip--visible'))
+}
+function hideResumeChip() {
+  const chip = document.querySelector('.demo-resume-chip')
+  if (chip) {
+    chip.classList.remove('demo-resume-chip--visible')
+    setTimeout(() => chip.remove(), 300)
   }
 }
 
 // ── Visual helpers ────────────────────────────────────────────
 
-function showToast(text, kind) {
+function showToast(text, kind, duration = 3800) {
   const toast = document.createElement('div')
   toast.className = `demo-toast demo-toast--${kind}`
   toast.textContent = text
@@ -272,7 +289,7 @@ function showToast(text, kind) {
   setTimeout(() => {
     toast.classList.remove('demo-toast--visible')
     setTimeout(() => toast.remove(), 300)
-  }, 3800)
+  }, duration)
 }
 
 function showFeedItem(text) {

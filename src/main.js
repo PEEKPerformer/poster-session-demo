@@ -11,8 +11,9 @@ import { renderGallery } from './views/gallery.js'
 import { renderVote } from './views/vote.js'
 import { renderConfirm } from './views/confirm.js'
 
-import { startDemo } from './demo/simulator.js'
+import { startDemo, attachInteractionPause } from './demo/simulator.js'
 import { mountDemoBanner } from './demo/banner.js'
+import { mountDemoTabs } from './demo/tabs.js'
 
 // Admin view — lazy-loaded for the admin scene of the demo.
 const renderAdmin = (root) => import('./views/admin.js').then(m => m.renderAdmin(root))
@@ -66,8 +67,10 @@ async function boot() {
     // Re-trigger current route to pick up fresh data
     const hash = window.location.hash || '#/gallery'
     window.dispatchEvent(new HashChangeEvent('hashchange'))
-    // Boot the demo — mount the banner and start the scripted timeline.
+    // Boot the demo — banner, tabs, interaction pause, then start the tour.
     mountDemoBanner()
+    mountDemoTabs()
+    attachInteractionPause()
     startDemo()
   })
 
