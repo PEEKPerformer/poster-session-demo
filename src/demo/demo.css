@@ -424,9 +424,12 @@ body.has-demo-tabs.has-demo-banner { padding-top: 128px; }
 .demo-tab--active .demo-tab__sub { color: #ffcd60; }
 
 /* ── Highlight spotlight + tooltip ──────────────────── */
+/* z-index above .welcome-overlay (10000) so highlights during the tutorial
+   actually sit on top of it. The box-shadow dim covers the welcome backdrop;
+   the spot's transparent interior lets the highlighted element show through. */
 .demo-highlight-spot {
   position: absolute;
-  z-index: 960;
+  z-index: 10500;
   border-radius: 8px;
   box-shadow: 0 0 0 9999px rgba(5, 8, 18, 0.7),
               0 0 0 2px rgba(255, 174, 0, 0.9) inset;
@@ -438,7 +441,7 @@ body.has-demo-tabs.has-demo-banner { padding-top: 128px; }
 
 .demo-highlight-tip {
   position: absolute;
-  z-index: 961;
+  z-index: 10501;
   max-width: 280px;
   background: linear-gradient(140deg, #11182a 0%, #1a2240 100%);
   border: 1px solid rgba(255, 174, 0, 0.5);
