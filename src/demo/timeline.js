@@ -132,9 +132,25 @@ export const TIMELINE = [
     label: 'event pulse',
     text: 'Three live stats that refresh every 30 seconds. Posters explored, total visits today, votes cast.',
     duration: 5000 },
-  { t: 155500, type: 'feed', actor: '_rand_', action: 'submitted their ranked ballot' },
-  { t: 157800, type: 'feed', actor: '_rand_', action: 'deep-dwelled 869s on poster #3' },
-  { t: 160100, type: 'feed', actor: '_rand_', action: 'voted from Jonal Labs' },
+  // ═══ 5b. "The room at peak" \u2014 burst of activity ═══════════════
+  { t: 155500, type: 'scene-card', text: 'The room at peak', duration: 1500 },
+  { t: 156800, type: 'burst',
+    toast: 'That was 11 things happening in the last 4 seconds.',
+    kind: 'gold',
+    stagger: 320,
+    items: [
+      'OZONE opened poster #7',
+      'CHAIN logged a visit from Vibram',
+      'SPOOL submitted their ranked ballot',
+      'FLEX signed in from AirBoss',
+      'BOND added a note to poster #18',
+      'MBTS logged 8 visits from Jonal Labs',
+      'TEAR voted (Peer Impact)',
+      'SHRED dwelled 532s on poster #2',
+      'FOAM logged a visit from Brown',
+      'VULC joined the gallery',
+      'GRAFT submitted their ballot',
+    ] },
 
   // ═══ 6. Admin dashboard ═════════════════════════════════════
   { t: 162500, type: 'mode', mode: 'admin' },

@@ -7,6 +7,13 @@ body.has-demo-banner { padding-top: 56px; }
   body.has-demo-banner { padding-top: 92px; }
 }
 
+/* When the demo is active, nudge the poster modal down so the app's own
+   modal header isn't hidden behind the banner+tabs. */
+body.has-demo-banner .poster-modal { top: 104px; }
+@media (max-width: 640px) {
+  body.has-demo-banner .poster-modal { top: 148px; }
+}
+
 .demo-banner {
   position: fixed;
   top: 0;
@@ -161,10 +168,10 @@ body.has-demo-banner { padding-top: 56px; }
 /* ── Toasts (center-top) ─────────────────────────────── */
 .demo-toast {
   position: fixed;
-  top: 88px;
+  top: 114px; /* below banner(56) + tabs(~50) + breathing room */
   left: 50%;
   transform: translate(-50%, -10px);
-  z-index: 950;
+  z-index: 1010; /* above banner(1000) + tabs(999) */
   padding: 0.7rem 1.1rem;
   border-radius: 10px;
   background: rgba(17, 24, 42, 0.96);
@@ -187,7 +194,7 @@ body.has-demo-banner { padding-top: 56px; }
   transform: translate(-50%, 0);
 }
 @media (max-width: 640px) {
-  .demo-toast { top: 128px; max-width: 90vw; font-size: 0.82rem; text-align: center; }
+  .demo-toast { top: 158px; max-width: 90vw; font-size: 0.82rem; text-align: center; }
 }
 
 /* ── Title card (cold open) ──────────────────────────── */
@@ -235,10 +242,10 @@ body.has-demo-banner { padding-top: 56px; }
 /* ── Scene transition card ───────────────────────────── */
 .demo-scene-card {
   position: fixed;
-  top: 100px;
+  top: 114px; /* below banner(56) + tabs(~50) */
   left: 50%;
   transform: translate(-50%, -10px);
-  z-index: 940;
+  z-index: 1010; /* above banner(1000) + tabs(999) */
   padding: 0.7rem 1.25rem;
   border-radius: 999px;
   background: rgba(17, 24, 42, 0.96);
@@ -260,7 +267,7 @@ body.has-demo-banner { padding-top: 56px; }
   transform: translate(-50%, 0);
 }
 @media (max-width: 640px) {
-  .demo-scene-card { top: 140px; font-size: 0.85rem; padding: 0.55rem 1rem; }
+  .demo-scene-card { top: 158px; font-size: 0.85rem; padding: 0.55rem 1rem; }
 }
 
 /* ── CTA overlay ─────────────────────────────────────── */

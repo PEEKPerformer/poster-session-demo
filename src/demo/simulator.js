@@ -196,6 +196,40 @@ function handleEvent(ev) {
       break
     }
 
+    case 'open-modal': {
+      // Call the poster-card component API directly rather than clicking an
+      // off-screen card — more robust and doesn't depend on DOM layout.
+      if (window.location.hash !== '#/gallery') window.location.hash = '#/gallery'
+      setTimeout(() => {
+        const poster = getState().posters.find(p => p.number === ev.poster)
+        if (!poster) return
+        import('../components/poster-card.js').then(m => {
+          m.openPosterModal(poster, {
+            visited: getState().visits.includes(ev.poster),
+            onLogVisit: () => {},
+          })
+        })
+      }, 220)
+      break
+    }
+
+    case 'close-modal': {
+      const close = document.querySelector('.poster-modal__close')
+      if (close) close.click()
+      else document.querySelectorAll('.poster-modal').forEach(n => n.remove())
+      break
+    }
+
+    case 'burst': {
+      // Apple-commercial moment: fire a rapid cascade of feed items so the
+      // "event feels alive" at peak. Each shifts in at a tight stagger; the
+      // feed's rolling 4-item window creates the churn.
+      const items = ev.items || []
+      items.forEach((text, i) => setTimeout(() => showFeedItem(text), i * (ev.stagger || 260)))
+      if (ev.toast) setTimeout(() => showToast(ev.toast, ev.kind || 'gold', ev.toastDuration || 4500), items.length * (ev.stagger || 260))
+      break
+    }
+
     case 'confetti':
       import('../lib/confetti.js').then(m => m.launchConfetti()).catch(() => {})
       break
