@@ -1,0 +1,567 @@
+[
+    {
+        "code": "ADMN",
+        "name": "Brenden Ferland",
+        "role": "admin"
+    },
+    {
+        "code": "AKRON",
+        "name": "Mohak Desai",
+        "role": "presenter"
+    },
+    {
+        "code": "ALLOY",
+        "name": "Abbas Ahmed",
+        "role": "presenter"
+    },
+    {
+        "code": "AMBER",
+        "name": "Isabelly De Jesus",
+        "role": "student"
+    },
+    {
+        "code": "AMINE",
+        "name": "Voter 043",
+        "role": "student"
+    },
+    {
+        "code": "BATCH",
+        "name": "Umang Gandhi",
+        "role": "student"
+    },
+    {
+        "code": "BEAD",
+        "name": "Sody Heng",
+        "role": "student"
+    },
+    {
+        "code": "BELT",
+        "name": "Naisha Lefort",
+        "role": "student"
+    },
+    {
+        "code": "BLACK",
+        "name": "Voter 060",
+        "role": "student"
+    },
+    {
+        "code": "BLEND",
+        "name": "Haley Dobbyn",
+        "role": "attendee"
+    },
+    {
+        "code": "BLOOM",
+        "name": "Snehal Mohire",
+        "role": "student"
+    },
+    {
+        "code": "BOND",
+        "name": "Zhiming Li",
+        "role": "presenter"
+    },
+    {
+        "code": "BUNA",
+        "name": "Voter 059",
+        "role": "student"
+    },
+    {
+        "code": "BUTYL",
+        "name": "Voter 058",
+        "role": "student"
+    },
+    {
+        "code": "CALEND",
+        "name": "Hoang-Phuc Pham",
+        "role": "presenter"
+    },
+    {
+        "code": "CAST",
+        "name": "Damien Jarrett",
+        "role": "attendee"
+    },
+    {
+        "code": "CHAIN",
+        "name": "Florence Wambugu",
+        "role": "presenter"
+    },
+    {
+        "code": "CLAY",
+        "name": "Voter 061",
+        "role": "student"
+    },
+    {
+        "code": "COIL",
+        "name": "Yasmin Teixeira Bimbatti",
+        "role": "presenter"
+    },
+    {
+        "code": "CORD",
+        "name": "Voter 086",
+        "role": "student"
+    },
+    {
+        "code": "CREEP",
+        "name": "Prof. Sun",
+        "role": "student"
+    },
+    {
+        "code": "CREPE",
+        "name": "Brett Trowle",
+        "role": "attendee"
+    },
+    {
+        "code": "CROSS",
+        "name": "Benjamin Stump",
+        "role": "attendee"
+    },
+    {
+        "code": "CRYO",
+        "name": "Voter 080",
+        "role": "student"
+    },
+    {
+        "code": "CURE",
+        "name": "Joe Curneal",
+        "role": "attendee"
+    },
+    {
+        "code": "DICUP",
+        "name": "Voter 082",
+        "role": "student"
+    },
+    {
+        "code": "DIENE",
+        "name": "Voter 073",
+        "role": "student"
+    },
+    {
+        "code": "EBONI",
+        "name": "Voter 044",
+        "role": "student"
+    },
+    {
+        "code": "ELAST",
+        "name": "Voter 041",
+        "role": "student"
+    },
+    {
+        "code": "ELONG",
+        "name": "Ben Sawicki",
+        "role": "attendee"
+    },
+    {
+        "code": "EPDM",
+        "name": "Terri Linn",
+        "role": "attendee"
+    },
+    {
+        "code": "EPOXY",
+        "name": "Jennifer Forgue",
+        "role": "attendee"
+    },
+    {
+        "code": "ERASR",
+        "name": "Anthony Mariniello",
+        "role": "attendee"
+    },
+    {
+        "code": "ESTER",
+        "name": "Maham Liaqat",
+        "role": "presenter"
+    },
+    {
+        "code": "ETHER",
+        "name": "Voter 048",
+        "role": "student"
+    },
+    {
+        "code": "FACTIS",
+        "name": "Voter 084",
+        "role": "student"
+    },
+    {
+        "code": "FIBER",
+        "name": "Salman Ahmadipouya",
+        "role": "presenter"
+    },
+    {
+        "code": "FILM",
+        "name": "Voter 063",
+        "role": "student"
+    },
+    {
+        "code": "FLEX",
+        "name": "Ray Hetherington",
+        "role": "attendee"
+    },
+    {
+        "code": "FLOC",
+        "name": "Vishwa Suthar",
+        "role": "student"
+    },
+    {
+        "code": "FLORY",
+        "name": "Voter 077",
+        "role": "student"
+    },
+    {
+        "code": "FLOW",
+        "name": "Phil Desplaines",
+        "role": "attendee"
+    },
+    {
+        "code": "FOAM",
+        "name": "Jack Conley",
+        "role": "presenter"
+    },
+    {
+        "code": "FROTH",
+        "name": "Joey Mead",
+        "role": "attendee"
+    },
+    {
+        "code": "GEL",
+        "name": "Ovijit Das",
+        "role": "presenter"
+    },
+    {
+        "code": "GLASS",
+        "name": "Calvin Johnson",
+        "role": "presenter"
+    },
+    {
+        "code": "GLOSS",
+        "name": "Prof. Nieh",
+        "role": "student"
+    },
+    {
+        "code": "GOODY",
+        "name": "Dawid Oleksak",
+        "role": "attendee"
+    },
+    {
+        "code": "GRAFT",
+        "name": "Abrar Ali Sitab",
+        "role": "presenter"
+    },
+    {
+        "code": "GREEN",
+        "name": "Mothana Al-Omari",
+        "role": "presenter"
+    },
+    {
+        "code": "GUTTA",
+        "name": "Jakiya Sultana Joya",
+        "role": "presenter"
+    },
+    {
+        "code": "HELIX",
+        "name": "Deep Shikha Srivastava",
+        "role": "student"
+    },
+    {
+        "code": "HEVEA",
+        "name": "Ken Keegan",
+        "role": "attendee"
+    },
+    {
+        "code": "HOSE",
+        "name": "Voter 068",
+        "role": "student"
+    },
+    {
+        "code": "HYSTER",
+        "name": "Hardy Royal",
+        "role": "attendee"
+    },
+    {
+        "code": "KEVLAR",
+        "name": "Jeff Linn",
+        "role": "attendee"
+    },
+    {
+        "code": "KNEAD",
+        "name": "John Meser",
+        "role": "attendee"
+    },
+    {
+        "code": "KRATO",
+        "name": "Voter 081",
+        "role": "student"
+    },
+    {
+        "code": "LATEX",
+        "name": "Brian Howard",
+        "role": "attendee"
+    },
+    {
+        "code": "MBTS",
+        "name": "Josh North",
+        "role": "attendee"
+    },
+    {
+        "code": "MELT",
+        "name": "Justin Amengual",
+        "role": "presenter"
+    },
+    {
+        "code": "MILL",
+        "name": "Leecy Davis",
+        "role": "attendee"
+    },
+    {
+        "code": "MOLD",
+        "name": "Amanda Bagley",
+        "role": "attendee"
+    },
+    {
+        "code": "MOONEY",
+        "name": "Cheryl Woodman",
+        "role": "attendee"
+    },
+    {
+        "code": "MORPH",
+        "name": "Muhammad Faheem",
+        "role": "presenter"
+    },
+    {
+        "code": "MULLIN",
+        "name": "Mubasshir AA",
+        "role": "attendee"
+    },
+    {
+        "code": "NATTA",
+        "name": "Voter 078",
+        "role": "student"
+    },
+    {
+        "code": "NERVY",
+        "name": "Voter 079",
+        "role": "student"
+    },
+    {
+        "code": "NYLON",
+        "name": "Voter 075",
+        "role": "student"
+    },
+    {
+        "code": "ORING",
+        "name": "Voter 069",
+        "role": "student"
+    },
+    {
+        "code": "OZONE",
+        "name": "Rumesha M Anthoni Pererage",
+        "role": "presenter"
+    },
+    {
+        "code": "PAYNE",
+        "name": "Ryan Wittenzellner",
+        "role": "attendee"
+    },
+    {
+        "code": "PEEL",
+        "name": "George Crochiere",
+        "role": "attendee"
+    },
+    {
+        "code": "PEROX",
+        "name": "Voter 050",
+        "role": "student"
+    },
+    {
+        "code": "PHASE",
+        "name": "Voter 036",
+        "role": "student"
+    },
+    {
+        "code": "PICKLE",
+        "name": "Voter 037",
+        "role": "student"
+    },
+    {
+        "code": "PLAST",
+        "name": "Prof. Adamson",
+        "role": "student"
+    },
+    {
+        "code": "POISE",
+        "name": "Voter 076",
+        "role": "student"
+    },
+    {
+        "code": "POLY",
+        "name": "Voter 038",
+        "role": "student"
+    },
+    {
+        "code": "PRENE",
+        "name": "Nathalia Diaz Armas",
+        "role": "attendee"
+    },
+    {
+        "code": "PRESS",
+        "name": "Michael Plante",
+        "role": "attendee"
+    },
+    {
+        "code": "QUENCH",
+        "name": "Bobby Cart",
+        "role": "attendee"
+    },
+    {
+        "code": "REDOX",
+        "name": "Wasif Zaman",
+        "role": "attendee"
+    },
+    {
+        "code": "RESIL",
+        "name": "Dominic Presutti",
+        "role": "attendee"
+    },
+    {
+        "code": "RESIN",
+        "name": "Mahdad Mahmoudi",
+        "role": "presenter"
+    },
+    {
+        "code": "ROTOR",
+        "name": "Vinh Le",
+        "role": "student"
+    },
+    {
+        "code": "SCORCH",
+        "name": "Jacob Zagorski",
+        "role": "attendee"
+    },
+    {
+        "code": "SCREW",
+        "name": "Brenden Ferland",
+        "role": "presenter"
+    },
+    {
+        "code": "SEAL",
+        "name": "Voter 006",
+        "role": "student"
+    },
+    {
+        "code": "SHEAR",
+        "name": "Daniel Davenport",
+        "role": "attendee"
+    },
+    {
+        "code": "SHORE",
+        "name": "Gary Mangiafico",
+        "role": "attendee"
+    },
+    {
+        "code": "SHRED",
+        "name": "Daniel Murphy",
+        "role": "attendee"
+    },
+    {
+        "code": "SILICA",
+        "name": "Voter 063",
+        "role": "student"
+    },
+    {
+        "code": "SILOX",
+        "name": "Voter 083",
+        "role": "student"
+    },
+    {
+        "code": "SKID",
+        "name": "Mykhel Walker",
+        "role": "attendee"
+    },
+    {
+        "code": "SKOR",
+        "name": "Voter 075",
+        "role": "student"
+    },
+    {
+        "code": "SNAP",
+        "name": "Thomas Morgan",
+        "role": "attendee"
+    },
+    {
+        "code": "SPIN",
+        "name": "Cassidy Soard",
+        "role": "presenter"
+    },
+    {
+        "code": "SPOOL",
+        "name": "Xiaoting Xue",
+        "role": "presenter"
+    },
+    {
+        "code": "SWELL",
+        "name": "Adam Walker",
+        "role": "attendee"
+    },
+    {
+        "code": "TACK",
+        "name": "Voter 020",
+        "role": "student"
+    },
+    {
+        "code": "TEAR",
+        "name": "Brian Gauquier",
+        "role": "attendee"
+    },
+    {
+        "code": "THIOL",
+        "name": "Voter 045",
+        "role": "student"
+    },
+    {
+        "code": "TIRE",
+        "name": "Voter 066",
+        "role": "attendee"
+    },
+    {
+        "code": "TMTD",
+        "name": "Voter 049",
+        "role": "attendee"
+    },
+    {
+        "code": "TREAD",
+        "name": "Akram Alhadainy",
+        "role": "presenter"
+    },
+    {
+        "code": "VINYL",
+        "name": "Debasmita Muhuri",
+        "role": "presenter"
+    },
+    {
+        "code": "VITON",
+        "name": "Voter 028",
+        "role": "attendee"
+    },
+    {
+        "code": "VULC",
+        "name": "Kevin Underwood",
+        "role": "attendee"
+    },
+    {
+        "code": "VULCUP",
+        "name": "William Washer",
+        "role": "attendee"
+    },
+    {
+        "code": "WELD",
+        "name": "Voter 085",
+        "role": "attendee"
+    },
+    {
+        "code": "YIELD",
+        "name": "Amanda Debiase",
+        "role": "attendee"
+    },
+    {
+        "code": "ZINC",
+        "name": "Voter 036",
+        "role": "attendee"
+    }
+]

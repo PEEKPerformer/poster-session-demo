@@ -1,0 +1,1437 @@
+[
+    {
+        "id": 1,
+        "attendee_code": "GRAFT",
+        "poster_number": 14,
+        "visited_at": "2026-03-15 21:49:22.20313+00",
+        "archived_at": "2026-03-17 12:52:34.869776+00"
+    },
+    {
+        "id": 2,
+        "attendee_code": "ELAST",
+        "poster_number": 18,
+        "visited_at": "2026-03-16 22:55:36.035666+00",
+        "archived_at": "2026-03-17 12:52:34.869776+00"
+    },
+    {
+        "id": 3,
+        "attendee_code": "ELAST",
+        "poster_number": 8,
+        "visited_at": "2026-03-16 22:55:38.19318+00",
+        "archived_at": "2026-03-17 12:52:34.869776+00"
+    },
+    {
+        "id": 4,
+        "attendee_code": "ELAST",
+        "poster_number": 16,
+        "visited_at": "2026-03-16 22:55:41.433123+00",
+        "archived_at": "2026-03-17 12:52:34.869776+00"
+    },
+    {
+        "id": 5,
+        "attendee_code": "ELAST",
+        "poster_number": 7,
+        "visited_at": "2026-03-16 22:55:43.778626+00",
+        "archived_at": "2026-03-17 12:52:34.869776+00"
+    },
+    {
+        "id": 6,
+        "attendee_code": "ELAST",
+        "poster_number": 14,
+        "visited_at": "2026-03-16 22:55:48.823112+00",
+        "archived_at": "2026-03-17 12:52:34.869776+00"
+    },
+    {
+        "id": 7,
+        "attendee_code": "ADMN",
+        "poster_number": 14,
+        "visited_at": "2026-03-16 23:07:52.817893+00",
+        "archived_at": "2026-03-17 12:52:34.869776+00"
+    },
+    {
+        "id": 8,
+        "attendee_code": "ADMN",
+        "poster_number": 18,
+        "visited_at": "2026-03-16 23:07:54.879734+00",
+        "archived_at": "2026-03-17 12:52:34.869776+00"
+    },
+    {
+        "id": 9,
+        "attendee_code": "ADMN",
+        "poster_number": 2,
+        "visited_at": "2026-03-16 23:07:57.526167+00",
+        "archived_at": "2026-03-17 12:52:34.869776+00"
+    },
+    {
+        "id": 10,
+        "attendee_code": "ADMN",
+        "poster_number": 6,
+        "visited_at": "2026-03-17 13:01:49.630363+00",
+        "archived_at": "2026-03-17 13:01:49.630363+00"
+    },
+    {
+        "id": 11,
+        "attendee_code": "RESIN",
+        "poster_number": 10,
+        "visited_at": "2026-03-18 13:55:46.52043+00",
+        "archived_at": "2026-03-18 13:55:46.52043+00"
+    },
+    {
+        "id": 12,
+        "attendee_code": "RESIN",
+        "poster_number": 14,
+        "visited_at": "2026-03-18 13:56:50.322669+00",
+        "archived_at": "2026-03-18 13:56:50.322669+00"
+    },
+    {
+        "id": 13,
+        "attendee_code": "RESIN",
+        "poster_number": 21,
+        "visited_at": "2026-03-18 13:57:50.635106+00",
+        "archived_at": "2026-03-18 13:57:50.635106+00"
+    },
+    {
+        "id": 14,
+        "attendee_code": "RESIN",
+        "poster_number": 11,
+        "visited_at": "2026-03-18 13:58:13.856209+00",
+        "archived_at": "2026-03-18 13:58:13.856209+00"
+    },
+    {
+        "id": 15,
+        "attendee_code": "RESIN",
+        "poster_number": 2,
+        "visited_at": "2026-03-18 13:58:41.69505+00",
+        "archived_at": "2026-03-18 13:58:41.69505+00"
+    },
+    {
+        "id": 16,
+        "attendee_code": "SPOOL",
+        "poster_number": 5,
+        "visited_at": "2026-03-18 15:15:30.928482+00",
+        "archived_at": "2026-03-18 15:15:30.928482+00"
+    },
+    {
+        "id": 17,
+        "attendee_code": "SPOOL",
+        "poster_number": 17,
+        "visited_at": "2026-03-18 15:17:05.949874+00",
+        "archived_at": "2026-03-18 15:17:05.949874+00"
+    },
+    {
+        "id": 18,
+        "attendee_code": "SPOOL",
+        "poster_number": 16,
+        "visited_at": "2026-03-18 15:17:22.679702+00",
+        "archived_at": "2026-03-18 15:17:22.679702+00"
+    },
+    {
+        "id": 19,
+        "attendee_code": "SPOOL",
+        "poster_number": 19,
+        "visited_at": "2026-03-18 15:17:44.001719+00",
+        "archived_at": "2026-03-18 15:17:44.001719+00"
+    },
+    {
+        "id": 20,
+        "attendee_code": "TREAD",
+        "poster_number": 12,
+        "visited_at": "2026-03-18 16:00:29.727774+00",
+        "archived_at": "2026-03-18 16:00:29.727774+00"
+    },
+    {
+        "id": 21,
+        "attendee_code": "AMBER",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 17:35:27.614038+00",
+        "archived_at": "2026-03-19 17:35:27.614038+00"
+    },
+    {
+        "id": 22,
+        "attendee_code": "ADMN",
+        "poster_number": 1,
+        "visited_at": "2026-03-19 17:35:32.152542+00",
+        "archived_at": "2026-03-19 17:35:32.152542+00"
+    },
+    {
+        "id": 23,
+        "attendee_code": "BELT",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 17:35:41.196004+00",
+        "archived_at": "2026-03-19 17:35:41.196004+00"
+    },
+    {
+        "id": 24,
+        "attendee_code": "FLOW",
+        "poster_number": 18,
+        "visited_at": "2026-03-19 17:35:42.32497+00",
+        "archived_at": "2026-03-19 17:35:42.32497+00"
+    },
+    {
+        "id": 25,
+        "attendee_code": "BEAD",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 17:36:00.373266+00",
+        "archived_at": "2026-03-19 17:36:00.373266+00"
+    },
+    {
+        "id": 26,
+        "attendee_code": "SHORE",
+        "poster_number": 17,
+        "visited_at": "2026-03-19 17:36:11.949024+00",
+        "archived_at": "2026-03-19 17:36:11.949024+00"
+    },
+    {
+        "id": 27,
+        "attendee_code": "TEAR",
+        "poster_number": 15,
+        "visited_at": "2026-03-19 17:36:17.149927+00",
+        "archived_at": "2026-03-19 17:36:17.149927+00"
+    },
+    {
+        "id": 28,
+        "attendee_code": "GLASS",
+        "poster_number": 20,
+        "visited_at": "2026-03-19 17:36:45.727859+00",
+        "archived_at": "2026-03-19 17:36:45.727859+00"
+    },
+    {
+        "id": 29,
+        "attendee_code": "YIELD",
+        "poster_number": 19,
+        "visited_at": "2026-03-19 17:37:06.000486+00",
+        "archived_at": "2026-03-19 17:37:06.000486+00"
+    },
+    {
+        "id": 30,
+        "attendee_code": "BLEND",
+        "poster_number": 1,
+        "visited_at": "2026-03-19 17:37:13.963792+00",
+        "archived_at": "2026-03-19 17:37:13.963792+00"
+    },
+    {
+        "id": 31,
+        "attendee_code": "VULCUP",
+        "poster_number": 19,
+        "visited_at": "2026-03-19 17:37:15.200934+00",
+        "archived_at": "2026-03-19 17:37:15.200934+00"
+    },
+    {
+        "id": 32,
+        "attendee_code": "FLEX",
+        "poster_number": 12,
+        "visited_at": "2026-03-19 17:37:41.349672+00",
+        "archived_at": "2026-03-19 17:37:41.349672+00"
+    },
+    {
+        "id": 33,
+        "attendee_code": "SKID",
+        "poster_number": 19,
+        "visited_at": "2026-03-19 17:37:43.634434+00",
+        "archived_at": "2026-03-19 17:37:43.634434+00"
+    },
+    {
+        "id": 34,
+        "attendee_code": "FLOW",
+        "poster_number": 2,
+        "visited_at": "2026-03-19 17:37:46.270585+00",
+        "archived_at": "2026-03-19 17:37:46.270585+00"
+    },
+    {
+        "id": 35,
+        "attendee_code": "BEAD",
+        "poster_number": 1,
+        "visited_at": "2026-03-19 17:37:46.451406+00",
+        "archived_at": "2026-03-19 17:37:46.451406+00"
+    },
+    {
+        "id": 36,
+        "attendee_code": "PRENE",
+        "poster_number": 14,
+        "visited_at": "2026-03-19 17:38:12.625566+00",
+        "archived_at": "2026-03-19 17:38:12.625566+00"
+    },
+    {
+        "id": 37,
+        "attendee_code": "VINYL",
+        "poster_number": 4,
+        "visited_at": "2026-03-19 17:38:15.102925+00",
+        "archived_at": "2026-03-19 17:38:15.102925+00"
+    },
+    {
+        "id": 38,
+        "attendee_code": "MORPH",
+        "poster_number": 17,
+        "visited_at": "2026-03-19 17:38:18.2622+00",
+        "archived_at": "2026-03-19 17:38:18.2622+00"
+    },
+    {
+        "id": 39,
+        "attendee_code": "SPIN",
+        "poster_number": 13,
+        "visited_at": "2026-03-19 17:38:24.932142+00",
+        "archived_at": "2026-03-19 17:38:24.932142+00"
+    },
+    {
+        "id": 40,
+        "attendee_code": "PRESS",
+        "poster_number": 2,
+        "visited_at": "2026-03-19 17:38:35.974277+00",
+        "archived_at": "2026-03-19 17:38:35.974277+00"
+    },
+    {
+        "id": 41,
+        "attendee_code": "SPIN",
+        "poster_number": 2,
+        "visited_at": "2026-03-19 17:38:45.166226+00",
+        "archived_at": "2026-03-19 17:38:45.166226+00"
+    },
+    {
+        "id": 42,
+        "attendee_code": "SHRED",
+        "poster_number": 19,
+        "visited_at": "2026-03-19 17:38:59.028017+00",
+        "archived_at": "2026-03-19 17:38:59.028017+00"
+    },
+    {
+        "id": 43,
+        "attendee_code": "FLEX",
+        "poster_number": 17,
+        "visited_at": "2026-03-19 17:39:29.033674+00",
+        "archived_at": "2026-03-19 17:39:29.033674+00"
+    },
+    {
+        "id": 44,
+        "attendee_code": "BLEND",
+        "poster_number": 7,
+        "visited_at": "2026-03-19 17:39:40.632642+00",
+        "archived_at": "2026-03-19 17:39:40.632642+00"
+    },
+    {
+        "id": 45,
+        "attendee_code": "EPOXY",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 17:39:44.412378+00",
+        "archived_at": "2026-03-19 17:39:44.412378+00"
+    },
+    {
+        "id": 46,
+        "attendee_code": "YIELD",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 17:40:14.186681+00",
+        "archived_at": "2026-03-19 17:40:14.186681+00"
+    },
+    {
+        "id": 47,
+        "attendee_code": "VULC",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 17:40:24.365616+00",
+        "archived_at": "2026-03-19 17:40:24.365616+00"
+    },
+    {
+        "id": 48,
+        "attendee_code": "SCORCH",
+        "poster_number": 20,
+        "visited_at": "2026-03-19 17:40:37.530424+00",
+        "archived_at": "2026-03-19 17:40:37.530424+00"
+    },
+    {
+        "id": 49,
+        "attendee_code": "CREPE",
+        "poster_number": 20,
+        "visited_at": "2026-03-19 17:40:45.047439+00",
+        "archived_at": "2026-03-19 17:40:45.047439+00"
+    },
+    {
+        "id": 50,
+        "attendee_code": "GOODY",
+        "poster_number": 20,
+        "visited_at": "2026-03-19 17:40:46.184635+00",
+        "archived_at": "2026-03-19 17:40:46.184635+00"
+    },
+    {
+        "id": 51,
+        "attendee_code": "CROSS",
+        "poster_number": 20,
+        "visited_at": "2026-03-19 17:40:56.424848+00",
+        "archived_at": "2026-03-19 17:40:56.424848+00"
+    },
+    {
+        "id": 52,
+        "attendee_code": "BELT",
+        "poster_number": 7,
+        "visited_at": "2026-03-19 17:41:26.743602+00",
+        "archived_at": "2026-03-19 17:41:26.743602+00"
+    },
+    {
+        "id": 53,
+        "attendee_code": "EPOXY",
+        "poster_number": 2,
+        "visited_at": "2026-03-19 17:41:30.458264+00",
+        "archived_at": "2026-03-19 17:41:30.458264+00"
+    },
+    {
+        "id": 54,
+        "attendee_code": "BEAD",
+        "poster_number": 7,
+        "visited_at": "2026-03-19 17:41:37.143973+00",
+        "archived_at": "2026-03-19 17:41:37.143973+00"
+    },
+    {
+        "id": 55,
+        "attendee_code": "AMBER",
+        "poster_number": 7,
+        "visited_at": "2026-03-19 17:41:40.230446+00",
+        "archived_at": "2026-03-19 17:41:40.230446+00"
+    },
+    {
+        "id": 56,
+        "attendee_code": "MOONEY",
+        "poster_number": 6,
+        "visited_at": "2026-03-19 17:42:50.147352+00",
+        "archived_at": "2026-03-19 17:42:50.147352+00"
+    },
+    {
+        "id": 57,
+        "attendee_code": "VULCUP",
+        "poster_number": 18,
+        "visited_at": "2026-03-19 17:43:51.710708+00",
+        "archived_at": "2026-03-19 17:43:51.710708+00"
+    },
+    {
+        "id": 58,
+        "attendee_code": "FLEX",
+        "poster_number": 8,
+        "visited_at": "2026-03-19 17:44:03.149843+00",
+        "archived_at": "2026-03-19 17:44:03.149843+00"
+    },
+    {
+        "id": 59,
+        "attendee_code": "VULC",
+        "poster_number": 7,
+        "visited_at": "2026-03-19 17:44:04.178023+00",
+        "archived_at": "2026-03-19 17:44:04.178023+00"
+    },
+    {
+        "id": 60,
+        "attendee_code": "TEAR",
+        "poster_number": 2,
+        "visited_at": "2026-03-19 17:44:11.30454+00",
+        "archived_at": "2026-03-19 17:44:11.30454+00"
+    },
+    {
+        "id": 61,
+        "attendee_code": "YIELD",
+        "poster_number": 2,
+        "visited_at": "2026-03-19 17:44:12.119184+00",
+        "archived_at": "2026-03-19 17:44:12.119184+00"
+    },
+    {
+        "id": 62,
+        "attendee_code": "EPOXY",
+        "poster_number": 21,
+        "visited_at": "2026-03-19 17:44:55.509738+00",
+        "archived_at": "2026-03-19 17:44:55.509738+00"
+    },
+    {
+        "id": 63,
+        "attendee_code": "KRATO",
+        "poster_number": 12,
+        "visited_at": "2026-03-19 17:45:26.761611+00",
+        "archived_at": "2026-03-19 17:45:26.761611+00"
+    },
+    {
+        "id": 64,
+        "attendee_code": "KRATO",
+        "poster_number": 17,
+        "visited_at": "2026-03-19 17:45:43.646962+00",
+        "archived_at": "2026-03-19 17:45:43.646962+00"
+    },
+    {
+        "id": 65,
+        "attendee_code": "YIELD",
+        "poster_number": 21,
+        "visited_at": "2026-03-19 17:45:52.535644+00",
+        "archived_at": "2026-03-19 17:45:52.535644+00"
+    },
+    {
+        "id": 66,
+        "attendee_code": "MELT",
+        "poster_number": 3,
+        "visited_at": "2026-03-19 17:47:47.577264+00",
+        "archived_at": "2026-03-19 17:47:47.577264+00"
+    },
+    {
+        "id": 67,
+        "attendee_code": "MELT",
+        "poster_number": 10,
+        "visited_at": "2026-03-19 17:47:57.04735+00",
+        "archived_at": "2026-03-19 17:47:57.04735+00"
+    },
+    {
+        "id": 68,
+        "attendee_code": "MELT",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 17:48:07.574451+00",
+        "archived_at": "2026-03-19 17:48:07.574451+00"
+    },
+    {
+        "id": 69,
+        "attendee_code": "MELT",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 17:48:15.230281+00",
+        "archived_at": "2026-03-19 17:48:15.230281+00"
+    },
+    {
+        "id": 70,
+        "attendee_code": "SKID",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 17:48:17.126702+00",
+        "archived_at": "2026-03-19 17:48:17.126702+00"
+    },
+    {
+        "id": 71,
+        "attendee_code": "YIELD",
+        "poster_number": 18,
+        "visited_at": "2026-03-19 17:48:25.651587+00",
+        "archived_at": "2026-03-19 17:48:25.651587+00"
+    },
+    {
+        "id": 72,
+        "attendee_code": "TEAR",
+        "poster_number": 18,
+        "visited_at": "2026-03-19 17:48:31.474019+00",
+        "archived_at": "2026-03-19 17:48:31.474019+00"
+    },
+    {
+        "id": 73,
+        "attendee_code": "MELT",
+        "poster_number": 14,
+        "visited_at": "2026-03-19 17:48:53.5698+00",
+        "archived_at": "2026-03-19 17:48:53.5698+00"
+    },
+    {
+        "id": 74,
+        "attendee_code": "EPOXY",
+        "poster_number": 18,
+        "visited_at": "2026-03-19 17:50:36.462004+00",
+        "archived_at": "2026-03-19 17:50:36.462004+00"
+    },
+    {
+        "id": 75,
+        "attendee_code": "NATTA",
+        "poster_number": 12,
+        "visited_at": "2026-03-19 17:50:44.945745+00",
+        "archived_at": "2026-03-19 17:50:44.945745+00"
+    },
+    {
+        "id": 76,
+        "attendee_code": "TIRE",
+        "poster_number": 9,
+        "visited_at": "2026-03-19 17:50:47.304266+00",
+        "archived_at": "2026-03-19 17:50:47.304266+00"
+    },
+    {
+        "id": 77,
+        "attendee_code": "SKID",
+        "poster_number": 15,
+        "visited_at": "2026-03-19 17:50:49.473692+00",
+        "archived_at": "2026-03-19 17:50:49.473692+00"
+    },
+    {
+        "id": 78,
+        "attendee_code": "CRYO",
+        "poster_number": 22,
+        "visited_at": "2026-03-19 17:50:55.913748+00",
+        "archived_at": "2026-03-19 17:50:55.913748+00"
+    },
+    {
+        "id": 79,
+        "attendee_code": "SKID",
+        "poster_number": 14,
+        "visited_at": "2026-03-19 17:50:56.033087+00",
+        "archived_at": "2026-03-19 17:50:56.033087+00"
+    },
+    {
+        "id": 80,
+        "attendee_code": "VULC",
+        "poster_number": 2,
+        "visited_at": "2026-03-19 17:51:13.869172+00",
+        "archived_at": "2026-03-19 17:51:13.869172+00"
+    },
+    {
+        "id": 81,
+        "attendee_code": "SKID",
+        "poster_number": 18,
+        "visited_at": "2026-03-19 17:51:26.887774+00",
+        "archived_at": "2026-03-19 17:51:26.887774+00"
+    },
+    {
+        "id": 82,
+        "attendee_code": "AMBER",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 17:51:41.807573+00",
+        "archived_at": "2026-03-19 17:51:41.807573+00"
+    },
+    {
+        "id": 83,
+        "attendee_code": "BELT",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 17:51:45.298216+00",
+        "archived_at": "2026-03-19 17:51:45.298216+00"
+    },
+    {
+        "id": 84,
+        "attendee_code": "CRYO",
+        "poster_number": 7,
+        "visited_at": "2026-03-19 17:51:48.981225+00",
+        "archived_at": "2026-03-19 17:51:48.981225+00"
+    },
+    {
+        "id": 85,
+        "attendee_code": "BEAD",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 17:52:06.805068+00",
+        "archived_at": "2026-03-19 17:52:06.805068+00"
+    },
+    {
+        "id": 86,
+        "attendee_code": "CRYO",
+        "poster_number": 9,
+        "visited_at": "2026-03-19 17:52:11.848672+00",
+        "archived_at": "2026-03-19 17:52:11.848672+00"
+    },
+    {
+        "id": 87,
+        "attendee_code": "ESTER",
+        "poster_number": 14,
+        "visited_at": "2026-03-19 17:52:12.290633+00",
+        "archived_at": "2026-03-19 17:52:12.290633+00"
+    },
+    {
+        "id": 88,
+        "attendee_code": "LATEX",
+        "poster_number": 17,
+        "visited_at": "2026-03-19 17:53:13.319521+00",
+        "archived_at": "2026-03-19 17:53:13.319521+00"
+    },
+    {
+        "id": 89,
+        "attendee_code": "PRENE",
+        "poster_number": 11,
+        "visited_at": "2026-03-19 17:53:23.524263+00",
+        "archived_at": "2026-03-19 17:53:23.524263+00"
+    },
+    {
+        "id": 90,
+        "attendee_code": "ROTOR",
+        "poster_number": 7,
+        "visited_at": "2026-03-19 17:53:53.107675+00",
+        "archived_at": "2026-03-19 17:53:53.107675+00"
+    },
+    {
+        "id": 91,
+        "attendee_code": "ROTOR",
+        "poster_number": 4,
+        "visited_at": "2026-03-19 17:54:02.050017+00",
+        "archived_at": "2026-03-19 17:54:02.050017+00"
+    },
+    {
+        "id": 92,
+        "attendee_code": "ROTOR",
+        "poster_number": 22,
+        "visited_at": "2026-03-19 17:54:04.52692+00",
+        "archived_at": "2026-03-19 17:54:04.52692+00"
+    },
+    {
+        "id": 93,
+        "attendee_code": "MELT",
+        "poster_number": 19,
+        "visited_at": "2026-03-19 17:54:08.131279+00",
+        "archived_at": "2026-03-19 17:54:08.131279+00"
+    },
+    {
+        "id": 94,
+        "attendee_code": "VULCUP",
+        "poster_number": 6,
+        "visited_at": "2026-03-19 17:54:23.528535+00",
+        "archived_at": "2026-03-19 17:54:23.528535+00"
+    },
+    {
+        "id": 95,
+        "attendee_code": "VINYL",
+        "poster_number": 14,
+        "visited_at": "2026-03-19 17:55:08.203336+00",
+        "archived_at": "2026-03-19 17:55:08.203336+00"
+    },
+    {
+        "id": 96,
+        "attendee_code": "EPOXY",
+        "poster_number": 13,
+        "visited_at": "2026-03-19 17:55:44.03767+00",
+        "archived_at": "2026-03-19 17:55:44.03767+00"
+    },
+    {
+        "id": 97,
+        "attendee_code": "YIELD",
+        "poster_number": 13,
+        "visited_at": "2026-03-19 17:56:22.200905+00",
+        "archived_at": "2026-03-19 17:56:22.200905+00"
+    },
+    {
+        "id": 98,
+        "attendee_code": "COIL",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 17:56:50.58791+00",
+        "archived_at": "2026-03-19 17:56:50.58791+00"
+    },
+    {
+        "id": 99,
+        "attendee_code": "TIRE",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 17:56:55.993386+00",
+        "archived_at": "2026-03-19 17:56:55.993386+00"
+    },
+    {
+        "id": 100,
+        "attendee_code": "VULCUP",
+        "poster_number": 2,
+        "visited_at": "2026-03-19 17:57:24.455491+00",
+        "archived_at": "2026-03-19 17:57:24.455491+00"
+    },
+    {
+        "id": 101,
+        "attendee_code": "TEAR",
+        "poster_number": 13,
+        "visited_at": "2026-03-19 17:57:53.772511+00",
+        "archived_at": "2026-03-19 17:57:53.772511+00"
+    },
+    {
+        "id": 102,
+        "attendee_code": "SHRED",
+        "poster_number": 18,
+        "visited_at": "2026-03-19 17:58:53.587493+00",
+        "archived_at": "2026-03-19 17:58:53.587493+00"
+    },
+    {
+        "id": 103,
+        "attendee_code": "SHRED",
+        "poster_number": 13,
+        "visited_at": "2026-03-19 17:59:18.921305+00",
+        "archived_at": "2026-03-19 17:59:18.921305+00"
+    },
+    {
+        "id": 104,
+        "attendee_code": "VULC",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 18:00:33.361754+00",
+        "archived_at": "2026-03-19 18:00:33.361754+00"
+    },
+    {
+        "id": 105,
+        "attendee_code": "VULC",
+        "poster_number": 12,
+        "visited_at": "2026-03-19 18:00:43.100925+00",
+        "archived_at": "2026-03-19 18:00:43.100925+00"
+    },
+    {
+        "id": 106,
+        "attendee_code": "PRENE",
+        "poster_number": 2,
+        "visited_at": "2026-03-19 18:02:10.356002+00",
+        "archived_at": "2026-03-19 18:02:10.356002+00"
+    },
+    {
+        "id": 107,
+        "attendee_code": "ROTOR",
+        "poster_number": 17,
+        "visited_at": "2026-03-19 18:03:46.037284+00",
+        "archived_at": "2026-03-19 18:03:46.037284+00"
+    },
+    {
+        "id": 108,
+        "attendee_code": "ROTOR",
+        "poster_number": 1,
+        "visited_at": "2026-03-19 18:04:07.546096+00",
+        "archived_at": "2026-03-19 18:04:07.546096+00"
+    },
+    {
+        "id": 109,
+        "attendee_code": "VULCUP",
+        "poster_number": 13,
+        "visited_at": "2026-03-19 18:04:55.412122+00",
+        "archived_at": "2026-03-19 18:04:55.412122+00"
+    },
+    {
+        "id": 110,
+        "attendee_code": "VINYL",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 18:05:19.493246+00",
+        "archived_at": "2026-03-19 18:05:19.493246+00"
+    },
+    {
+        "id": 111,
+        "attendee_code": "SHEAR",
+        "poster_number": 6,
+        "visited_at": "2026-03-19 18:05:46.35393+00",
+        "archived_at": "2026-03-19 18:05:46.35393+00"
+    },
+    {
+        "id": 112,
+        "attendee_code": "SKID",
+        "poster_number": 2,
+        "visited_at": "2026-03-19 18:06:58.484654+00",
+        "archived_at": "2026-03-19 18:06:58.484654+00"
+    },
+    {
+        "id": 113,
+        "attendee_code": "SKID",
+        "poster_number": 6,
+        "visited_at": "2026-03-19 18:07:05.84484+00",
+        "archived_at": "2026-03-19 18:07:05.84484+00"
+    },
+    {
+        "id": 114,
+        "attendee_code": "SKID",
+        "poster_number": 12,
+        "visited_at": "2026-03-19 18:07:18.800074+00",
+        "archived_at": "2026-03-19 18:07:18.800074+00"
+    },
+    {
+        "id": 115,
+        "attendee_code": "SKID",
+        "poster_number": 1,
+        "visited_at": "2026-03-19 18:07:26.553023+00",
+        "archived_at": "2026-03-19 18:07:26.553023+00"
+    },
+    {
+        "id": 116,
+        "attendee_code": "VINYL",
+        "poster_number": 17,
+        "visited_at": "2026-03-19 18:07:49.705101+00",
+        "archived_at": "2026-03-19 18:07:49.705101+00"
+    },
+    {
+        "id": 117,
+        "attendee_code": "VINYL",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 18:07:56.494997+00",
+        "archived_at": "2026-03-19 18:07:56.494997+00"
+    },
+    {
+        "id": 118,
+        "attendee_code": "VINYL",
+        "poster_number": 18,
+        "visited_at": "2026-03-19 18:08:01.239917+00",
+        "archived_at": "2026-03-19 18:08:01.239917+00"
+    },
+    {
+        "id": 119,
+        "attendee_code": "VINYL",
+        "poster_number": 15,
+        "visited_at": "2026-03-19 18:08:14.352752+00",
+        "archived_at": "2026-03-19 18:08:14.352752+00"
+    },
+    {
+        "id": 120,
+        "attendee_code": "OZONE",
+        "poster_number": 18,
+        "visited_at": "2026-03-19 18:08:55.426815+00",
+        "archived_at": "2026-03-19 18:08:55.426815+00"
+    },
+    {
+        "id": 121,
+        "attendee_code": "OZONE",
+        "poster_number": 21,
+        "visited_at": "2026-03-19 18:09:20.755112+00",
+        "archived_at": "2026-03-19 18:09:20.755112+00"
+    },
+    {
+        "id": 122,
+        "attendee_code": "OZONE",
+        "poster_number": 14,
+        "visited_at": "2026-03-19 18:09:32.494935+00",
+        "archived_at": "2026-03-19 18:09:32.494935+00"
+    },
+    {
+        "id": 123,
+        "attendee_code": "SHEAR",
+        "poster_number": 13,
+        "visited_at": "2026-03-19 18:10:38.709928+00",
+        "archived_at": "2026-03-19 18:10:38.709928+00"
+    },
+    {
+        "id": 124,
+        "attendee_code": "SHEAR",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 18:10:51.169596+00",
+        "archived_at": "2026-03-19 18:10:51.169596+00"
+    },
+    {
+        "id": 125,
+        "attendee_code": "VULC",
+        "poster_number": 20,
+        "visited_at": "2026-03-19 18:11:20.052331+00",
+        "archived_at": "2026-03-19 18:11:20.052331+00"
+    },
+    {
+        "id": 126,
+        "attendee_code": "SPOOL",
+        "poster_number": 17,
+        "visited_at": "2026-03-19 18:11:36.467149+00",
+        "archived_at": "2026-03-19 18:11:36.467149+00"
+    },
+    {
+        "id": 127,
+        "attendee_code": "SPOOL",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 18:11:45.649189+00",
+        "archived_at": "2026-03-19 18:11:45.649189+00"
+    },
+    {
+        "id": 128,
+        "attendee_code": "SPOOL",
+        "poster_number": 13,
+        "visited_at": "2026-03-19 18:11:51.129438+00",
+        "archived_at": "2026-03-19 18:11:51.129438+00"
+    },
+    {
+        "id": 129,
+        "attendee_code": "SPOOL",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 18:11:55.390168+00",
+        "archived_at": "2026-03-19 18:11:55.390168+00"
+    },
+    {
+        "id": 130,
+        "attendee_code": "VULC",
+        "poster_number": 4,
+        "visited_at": "2026-03-19 18:12:02.250949+00",
+        "archived_at": "2026-03-19 18:12:02.250949+00"
+    },
+    {
+        "id": 131,
+        "attendee_code": "VULC",
+        "poster_number": 9,
+        "visited_at": "2026-03-19 18:12:59.092504+00",
+        "archived_at": "2026-03-19 18:12:59.092504+00"
+    },
+    {
+        "id": 132,
+        "attendee_code": "EPOXY",
+        "poster_number": 7,
+        "visited_at": "2026-03-19 18:13:13.811456+00",
+        "archived_at": "2026-03-19 18:13:13.811456+00"
+    },
+    {
+        "id": 133,
+        "attendee_code": "YIELD",
+        "poster_number": 7,
+        "visited_at": "2026-03-19 18:13:50.180951+00",
+        "archived_at": "2026-03-19 18:13:50.180951+00"
+    },
+    {
+        "id": 134,
+        "attendee_code": "CALEND",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 18:14:39.832966+00",
+        "archived_at": "2026-03-19 18:14:39.832966+00"
+    },
+    {
+        "id": 135,
+        "attendee_code": "CALEND",
+        "poster_number": 15,
+        "visited_at": "2026-03-19 18:14:44.329335+00",
+        "archived_at": "2026-03-19 18:14:44.329335+00"
+    },
+    {
+        "id": 136,
+        "attendee_code": "CALEND",
+        "poster_number": 13,
+        "visited_at": "2026-03-19 18:14:53.026201+00",
+        "archived_at": "2026-03-19 18:14:53.026201+00"
+    },
+    {
+        "id": 137,
+        "attendee_code": "SNAP",
+        "poster_number": 13,
+        "visited_at": "2026-03-19 18:15:09.889615+00",
+        "archived_at": "2026-03-19 18:15:09.889615+00"
+    },
+    {
+        "id": 138,
+        "attendee_code": "SHRED",
+        "poster_number": 7,
+        "visited_at": "2026-03-19 18:15:34.199701+00",
+        "archived_at": "2026-03-19 18:15:34.199701+00"
+    },
+    {
+        "id": 139,
+        "attendee_code": "SPOOL",
+        "poster_number": 14,
+        "visited_at": "2026-03-19 18:15:47.007498+00",
+        "archived_at": "2026-03-19 18:15:47.007498+00"
+    },
+    {
+        "id": 140,
+        "attendee_code": "NATTA",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 18:17:33.135278+00",
+        "archived_at": "2026-03-19 18:17:33.135278+00"
+    },
+    {
+        "id": 141,
+        "attendee_code": "NATTA",
+        "poster_number": 4,
+        "visited_at": "2026-03-19 18:17:38.041731+00",
+        "archived_at": "2026-03-19 18:17:38.041731+00"
+    },
+    {
+        "id": 142,
+        "attendee_code": "PEEL",
+        "poster_number": 14,
+        "visited_at": "2026-03-19 18:19:54.585936+00",
+        "archived_at": "2026-03-19 18:19:54.585936+00"
+    },
+    {
+        "id": 143,
+        "attendee_code": "PEEL",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 18:20:01.630857+00",
+        "archived_at": "2026-03-19 18:20:01.630857+00"
+    },
+    {
+        "id": 144,
+        "attendee_code": "PEEL",
+        "poster_number": 7,
+        "visited_at": "2026-03-19 18:20:12.183892+00",
+        "archived_at": "2026-03-19 18:20:12.183892+00"
+    },
+    {
+        "id": 145,
+        "attendee_code": "PEEL",
+        "poster_number": 6,
+        "visited_at": "2026-03-19 18:20:23.034089+00",
+        "archived_at": "2026-03-19 18:20:23.034089+00"
+    },
+    {
+        "id": 146,
+        "attendee_code": "TEAR",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 18:20:33.102432+00",
+        "archived_at": "2026-03-19 18:20:33.102432+00"
+    },
+    {
+        "id": 147,
+        "attendee_code": "PEEL",
+        "poster_number": 12,
+        "visited_at": "2026-03-19 18:20:46.564931+00",
+        "archived_at": "2026-03-19 18:20:46.564931+00"
+    },
+    {
+        "id": 148,
+        "attendee_code": "SHRED",
+        "poster_number": 16,
+        "visited_at": "2026-03-19 18:20:57.48985+00",
+        "archived_at": "2026-03-19 18:20:57.48985+00"
+    },
+    {
+        "id": 149,
+        "attendee_code": "PEEL",
+        "poster_number": 19,
+        "visited_at": "2026-03-19 18:21:03.5271+00",
+        "archived_at": "2026-03-19 18:21:03.5271+00"
+    },
+    {
+        "id": 150,
+        "attendee_code": "PEEL",
+        "poster_number": 21,
+        "visited_at": "2026-03-19 18:21:13.016775+00",
+        "archived_at": "2026-03-19 18:21:13.016775+00"
+    },
+    {
+        "id": 151,
+        "attendee_code": "PEEL",
+        "poster_number": 17,
+        "visited_at": "2026-03-19 18:21:28.518484+00",
+        "archived_at": "2026-03-19 18:21:28.518484+00"
+    },
+    {
+        "id": 152,
+        "attendee_code": "PEEL",
+        "poster_number": 20,
+        "visited_at": "2026-03-19 18:21:38.973445+00",
+        "archived_at": "2026-03-19 18:21:38.973445+00"
+    },
+    {
+        "id": 153,
+        "attendee_code": "PEEL",
+        "poster_number": 22,
+        "visited_at": "2026-03-19 18:21:57.807747+00",
+        "archived_at": "2026-03-19 18:21:57.807747+00"
+    },
+    {
+        "id": 154,
+        "attendee_code": "PEEL",
+        "poster_number": 11,
+        "visited_at": "2026-03-19 18:22:13.593438+00",
+        "archived_at": "2026-03-19 18:22:13.593438+00"
+    },
+    {
+        "id": 155,
+        "attendee_code": "GRAFT",
+        "poster_number": 15,
+        "visited_at": "2026-03-19 18:22:25.110538+00",
+        "archived_at": "2026-03-19 18:22:25.110538+00"
+    },
+    {
+        "id": 156,
+        "attendee_code": "PEEL",
+        "poster_number": 9,
+        "visited_at": "2026-03-19 18:22:25.358757+00",
+        "archived_at": "2026-03-19 18:22:25.358757+00"
+    },
+    {
+        "id": 157,
+        "attendee_code": "SILICA",
+        "poster_number": 4,
+        "visited_at": "2026-03-19 18:23:43.334067+00",
+        "archived_at": "2026-03-19 18:23:43.334067+00"
+    },
+    {
+        "id": 158,
+        "attendee_code": "VULC",
+        "poster_number": 17,
+        "visited_at": "2026-03-19 18:24:17.284236+00",
+        "archived_at": "2026-03-19 18:24:17.284236+00"
+    },
+    {
+        "id": 159,
+        "attendee_code": "SILICA",
+        "poster_number": 12,
+        "visited_at": "2026-03-19 18:24:21.204011+00",
+        "archived_at": "2026-03-19 18:24:21.204011+00"
+    },
+    {
+        "id": 160,
+        "attendee_code": "COIL",
+        "poster_number": 3,
+        "visited_at": "2026-03-19 18:24:29.65635+00",
+        "archived_at": "2026-03-19 18:24:29.65635+00"
+    },
+    {
+        "id": 161,
+        "attendee_code": "SILICA",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 18:24:38.640009+00",
+        "archived_at": "2026-03-19 18:24:38.640009+00"
+    },
+    {
+        "id": 162,
+        "attendee_code": "TEAR",
+        "poster_number": 14,
+        "visited_at": "2026-03-19 18:25:34.467142+00",
+        "archived_at": "2026-03-19 18:25:34.467142+00"
+    },
+    {
+        "id": 163,
+        "attendee_code": "SHRED",
+        "poster_number": 3,
+        "visited_at": "2026-03-19 18:25:37.127422+00",
+        "archived_at": "2026-03-19 18:25:37.127422+00"
+    },
+    {
+        "id": 164,
+        "attendee_code": "SHRED",
+        "poster_number": 11,
+        "visited_at": "2026-03-19 18:25:37.216033+00",
+        "archived_at": "2026-03-19 18:25:37.216033+00"
+    },
+    {
+        "id": 165,
+        "attendee_code": "SHRED",
+        "poster_number": 14,
+        "visited_at": "2026-03-19 18:25:44.323178+00",
+        "archived_at": "2026-03-19 18:25:44.323178+00"
+    },
+    {
+        "id": 166,
+        "attendee_code": "GREEN",
+        "poster_number": 18,
+        "visited_at": "2026-03-19 18:26:59.53509+00",
+        "archived_at": "2026-03-19 18:26:59.53509+00"
+    },
+    {
+        "id": 167,
+        "attendee_code": "CHAIN",
+        "poster_number": 14,
+        "visited_at": "2026-03-19 18:27:00.472316+00",
+        "archived_at": "2026-03-19 18:27:00.472316+00"
+    },
+    {
+        "id": 168,
+        "attendee_code": "CHAIN",
+        "poster_number": 22,
+        "visited_at": "2026-03-19 18:27:08.318097+00",
+        "archived_at": "2026-03-19 18:27:08.318097+00"
+    },
+    {
+        "id": 169,
+        "attendee_code": "GREEN",
+        "poster_number": 14,
+        "visited_at": "2026-03-19 18:27:15.693675+00",
+        "archived_at": "2026-03-19 18:27:15.693675+00"
+    },
+    {
+        "id": 170,
+        "attendee_code": "GREEN",
+        "poster_number": 2,
+        "visited_at": "2026-03-19 18:27:32.407806+00",
+        "archived_at": "2026-03-19 18:27:32.407806+00"
+    },
+    {
+        "id": 171,
+        "attendee_code": "CHAIN",
+        "poster_number": 1,
+        "visited_at": "2026-03-19 18:27:54.090864+00",
+        "archived_at": "2026-03-19 18:27:54.090864+00"
+    },
+    {
+        "id": 172,
+        "attendee_code": "GREEN",
+        "poster_number": 10,
+        "visited_at": "2026-03-19 18:28:25.811544+00",
+        "archived_at": "2026-03-19 18:28:25.811544+00"
+    },
+    {
+        "id": 173,
+        "attendee_code": "GREEN",
+        "poster_number": 21,
+        "visited_at": "2026-03-19 18:28:30.723162+00",
+        "archived_at": "2026-03-19 18:28:30.723162+00"
+    },
+    {
+        "id": 174,
+        "attendee_code": "SHRED",
+        "poster_number": 2,
+        "visited_at": "2026-03-19 18:30:23.16394+00",
+        "archived_at": "2026-03-19 18:30:23.16394+00"
+    },
+    {
+        "id": 175,
+        "attendee_code": "SCORCH",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 18:31:19.689559+00",
+        "archived_at": "2026-03-19 18:31:19.689559+00"
+    },
+    {
+        "id": 176,
+        "attendee_code": "CREPE",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 18:31:24.627823+00",
+        "archived_at": "2026-03-19 18:31:24.627823+00"
+    },
+    {
+        "id": 177,
+        "attendee_code": "SKID",
+        "poster_number": 7,
+        "visited_at": "2026-03-19 18:31:39.003833+00",
+        "archived_at": "2026-03-19 18:31:39.003833+00"
+    },
+    {
+        "id": 178,
+        "attendee_code": "SKID",
+        "poster_number": 17,
+        "visited_at": "2026-03-19 18:31:51.395582+00",
+        "archived_at": "2026-03-19 18:31:51.395582+00"
+    },
+    {
+        "id": 179,
+        "attendee_code": "MORPH",
+        "poster_number": 19,
+        "visited_at": "2026-03-19 18:32:07.482228+00",
+        "archived_at": "2026-03-19 18:32:07.482228+00"
+    },
+    {
+        "id": 180,
+        "attendee_code": "SKID",
+        "poster_number": 22,
+        "visited_at": "2026-03-19 18:32:51.463801+00",
+        "archived_at": "2026-03-19 18:32:51.463801+00"
+    },
+    {
+        "id": 181,
+        "attendee_code": "GOODY",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 18:33:03.074588+00",
+        "archived_at": "2026-03-19 18:33:03.074588+00"
+    },
+    {
+        "id": 182,
+        "attendee_code": "CROSS",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 18:33:41.433783+00",
+        "archived_at": "2026-03-19 18:33:41.433783+00"
+    },
+    {
+        "id": 183,
+        "attendee_code": "GLASS",
+        "poster_number": 15,
+        "visited_at": "2026-03-19 18:33:49.568534+00",
+        "archived_at": "2026-03-19 18:33:49.568534+00"
+    },
+    {
+        "id": 184,
+        "attendee_code": "NATTA",
+        "poster_number": 19,
+        "visited_at": "2026-03-19 18:33:56.085005+00",
+        "archived_at": "2026-03-19 18:33:56.085005+00"
+    },
+    {
+        "id": 185,
+        "attendee_code": "HYSTER",
+        "poster_number": 21,
+        "visited_at": "2026-03-19 18:33:58.350775+00",
+        "archived_at": "2026-03-19 18:33:58.350775+00"
+    },
+    {
+        "id": 186,
+        "attendee_code": "HYSTER",
+        "poster_number": 7,
+        "visited_at": "2026-03-19 18:34:05.41031+00",
+        "archived_at": "2026-03-19 18:34:05.41031+00"
+    },
+    {
+        "id": 187,
+        "attendee_code": "HYSTER",
+        "poster_number": 8,
+        "visited_at": "2026-03-19 18:34:10.284377+00",
+        "archived_at": "2026-03-19 18:34:10.284377+00"
+    },
+    {
+        "id": 188,
+        "attendee_code": "GLASS",
+        "poster_number": 4,
+        "visited_at": "2026-03-19 18:36:25.904262+00",
+        "archived_at": "2026-03-19 18:36:25.904262+00"
+    },
+    {
+        "id": 189,
+        "attendee_code": "GLASS",
+        "poster_number": 17,
+        "visited_at": "2026-03-19 18:38:00.307092+00",
+        "archived_at": "2026-03-19 18:38:00.307092+00"
+    },
+    {
+        "id": 190,
+        "attendee_code": "GLASS",
+        "poster_number": 12,
+        "visited_at": "2026-03-19 18:39:58.992478+00",
+        "archived_at": "2026-03-19 18:39:58.992478+00"
+    },
+    {
+        "id": 191,
+        "attendee_code": "OZONE",
+        "poster_number": 12,
+        "visited_at": "2026-03-19 18:40:44.307087+00",
+        "archived_at": "2026-03-19 18:40:44.307087+00"
+    },
+    {
+        "id": 192,
+        "attendee_code": "OZONE",
+        "poster_number": 20,
+        "visited_at": "2026-03-19 18:40:50.770387+00",
+        "archived_at": "2026-03-19 18:40:50.770387+00"
+    },
+    {
+        "id": 193,
+        "attendee_code": "MORPH",
+        "poster_number": 4,
+        "visited_at": "2026-03-19 19:34:01.174316+00",
+        "archived_at": "2026-03-19 19:34:01.174316+00"
+    },
+    {
+        "id": 194,
+        "attendee_code": "MORPH",
+        "poster_number": 20,
+        "visited_at": "2026-03-19 19:34:17.765958+00",
+        "archived_at": "2026-03-19 19:34:17.765958+00"
+    },
+    {
+        "id": 195,
+        "attendee_code": "MORPH",
+        "poster_number": 10,
+        "visited_at": "2026-03-19 19:34:23.018821+00",
+        "archived_at": "2026-03-19 19:34:23.018821+00"
+    },
+    {
+        "id": 196,
+        "attendee_code": "MORPH",
+        "poster_number": 21,
+        "visited_at": "2026-03-19 19:35:33.512954+00",
+        "archived_at": "2026-03-19 19:35:33.512954+00"
+    },
+    {
+        "id": 197,
+        "attendee_code": "MORPH",
+        "poster_number": 7,
+        "visited_at": "2026-03-19 19:45:50.97476+00",
+        "archived_at": "2026-03-19 19:45:50.97476+00"
+    },
+    {
+        "id": 198,
+        "attendee_code": "MORPH",
+        "poster_number": 5,
+        "visited_at": "2026-03-19 19:47:34.880833+00",
+        "archived_at": "2026-03-19 19:47:34.880833+00"
+    },
+    {
+        "id": 199,
+        "attendee_code": "MORPH",
+        "poster_number": 18,
+        "visited_at": "2026-03-19 19:49:02.413627+00",
+        "archived_at": "2026-03-19 19:49:02.413627+00"
+    },
+    {
+        "id": 200,
+        "attendee_code": "MORPH",
+        "poster_number": 1,
+        "visited_at": "2026-03-19 19:49:03.955848+00",
+        "archived_at": "2026-03-19 19:49:03.955848+00"
+    },
+    {
+        "id": 201,
+        "attendee_code": "MORPH",
+        "poster_number": 3,
+        "visited_at": "2026-03-19 19:53:58.291619+00",
+        "archived_at": "2026-03-19 19:53:58.291619+00"
+    },
+    {
+        "id": 202,
+        "attendee_code": "CHAIN",
+        "poster_number": 16,
+        "visited_at": "2026-03-20 16:10:18.802867+00",
+        "archived_at": "2026-03-20 16:10:18.802867+00"
+    },
+    {
+        "id": 203,
+        "attendee_code": "CHAIN",
+        "poster_number": 10,
+        "visited_at": "2026-03-20 16:10:21.255485+00",
+        "archived_at": "2026-03-20 16:10:21.255485+00"
+    },
+    {
+        "id": 204,
+        "attendee_code": "CHAIN",
+        "poster_number": 7,
+        "visited_at": "2026-03-20 16:10:21.389252+00",
+        "archived_at": "2026-03-20 16:10:21.389252+00"
+    },
+    {
+        "id": 205,
+        "attendee_code": "CHAIN",
+        "poster_number": 18,
+        "visited_at": "2026-03-20 16:10:21.930459+00",
+        "archived_at": "2026-03-20 16:10:21.930459+00"
+    }
+]

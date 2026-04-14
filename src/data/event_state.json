@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "phase": "session",
+        "updated_at": "2026-03-19T22:51:52.491242+00:00",
+        "schedule": [
+            {
+                "time": "2:30 PM",
+                "label": "Prof. Anson Ma (UConn) \u2014 Additive Manufacturing of Functional Materials"
+            },
+            {
+                "time": "3:00 PM",
+                "label": "Prof. Mihai Duduta (UConn) \u2014 Soft Machines in Extreme Environments"
+            },
+            {
+                "time": "3:30 PM",
+                "label": "Prof. Douglas Adamson (UConn) \u2014 Functionalized Graphene Sheets as Multifunctional Nanofillers in Elastomers"
+            },
+            {
+                "time": "4:00 PM",
+                "label": "Awards Ceremony"
+            },
+            {
+                "time": "4:30 PM",
+                "label": "Social Hour/Dinner \u2014 Following the UConn Tour"
+            }
+        ]
+    }
+]

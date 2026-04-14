@@ -1,0 +1,152 @@
+[
+    {
+        "poster_number": 13,
+        "poster_title": "3D Printed Self-Powered Piezoelectric Smart Scaffolds for Enhanced Bone Tissue Regeneration",
+        "student_name": "Zhiming Li",
+        "weighted_score": 17,
+        "first_place_count": 4,
+        "second_place_count": 2,
+        "third_place_count": 1,
+        "total_votes": 7
+    },
+    {
+        "poster_number": 7,
+        "poster_title": "Structure\u2013Activity Relationships of Functionalized Cannabinoids for Antimicrobial Activity and Biofilm Inhibition",
+        "student_name": "Florence Wambugu",
+        "weighted_score": 16,
+        "first_place_count": 2,
+        "second_place_count": 4,
+        "third_place_count": 2,
+        "total_votes": 8
+    },
+    {
+        "poster_number": 5,
+        "poster_title": "Liquid-Based Encapsulation for Implantable Bioelectronics Across Broad pH Environment",
+        "student_name": "Xiaoting Xue",
+        "weighted_score": 10,
+        "first_place_count": 2,
+        "second_place_count": 1,
+        "third_place_count": 2,
+        "total_votes": 5
+    },
+    {
+        "poster_number": 6,
+        "poster_title": "Polyamide Thin-Film Composite Membranes for Gas Separations",
+        "student_name": "Salman Ahmadipouya",
+        "weighted_score": 9,
+        "first_place_count": 0,
+        "second_place_count": 3,
+        "third_place_count": 3,
+        "total_votes": 6
+    },
+    {
+        "poster_number": 8,
+        "poster_title": "Electrosprayed Membranes for Electrochemical Applications",
+        "student_name": "Yasmin Teixeira Bimbatti",
+        "weighted_score": 7,
+        "first_place_count": 1,
+        "second_place_count": 2,
+        "third_place_count": 0,
+        "total_votes": 3
+    },
+    {
+        "poster_number": 18,
+        "poster_title": "Preparation of Thiol-Ene Functionalized Polymer-Grafted Silk Nanoparticles",
+        "student_name": "Cassidy Soard",
+        "weighted_score": 7,
+        "first_place_count": 1,
+        "second_place_count": 2,
+        "third_place_count": 0,
+        "total_votes": 3
+    },
+    {
+        "poster_number": 2,
+        "poster_title": "Metal-Free, Self-Supporting Graphene Membrane Fabricated by Solvent Interface Trapping for Electrochemical CO\u2082 Reduction",
+        "student_name": "Rumesha Anthoni Pererage",
+        "weighted_score": 7,
+        "first_place_count": 1,
+        "second_place_count": 1,
+        "third_place_count": 2,
+        "total_votes": 4
+    },
+    {
+        "poster_number": 9,
+        "poster_title": "Glass Transition Temperature for Entangled and Cross-Linked Polymer Melts in Molecular Dynamics Simulations",
+        "student_name": "Calvin Johnson",
+        "weighted_score": 6,
+        "first_place_count": 1,
+        "second_place_count": 1,
+        "third_place_count": 1,
+        "total_votes": 3
+    },
+    {
+        "poster_number": 19,
+        "poster_title": "Development of Synthetic Polypeptide Mediated Lipid Nano-Discs",
+        "student_name": "Justin Amengual",
+        "weighted_score": 5,
+        "first_place_count": 1,
+        "second_place_count": 1,
+        "third_place_count": 0,
+        "total_votes": 2
+    },
+    {
+        "poster_number": 20,
+        "poster_title": "Chiral Monooxygenation in Microemulsions Using Cu-Albumin Artificial Enzyme",
+        "student_name": "Maham Liaqat",
+        "weighted_score": 5,
+        "first_place_count": 1,
+        "second_place_count": 0,
+        "third_place_count": 2,
+        "total_votes": 3
+    },
+    {
+        "poster_number": 22,
+        "poster_title": "Scale-Up of High-Temperature Polyolefins for Dielectrics, Film Processing, and Testing",
+        "student_name": "Mohak Desai",
+        "weighted_score": 4,
+        "first_place_count": 1,
+        "second_place_count": 0,
+        "third_place_count": 1,
+        "total_votes": 2
+    },
+    {
+        "poster_number": 15,
+        "poster_title": "Polymer Walks on Weakly Adsorbing Spherical Surfaces",
+        "student_name": "Jack Conley",
+        "weighted_score": 3,
+        "first_place_count": 1,
+        "second_place_count": 0,
+        "third_place_count": 0,
+        "total_votes": 1
+    },
+    {
+        "poster_number": 21,
+        "poster_title": "Interfacial Self-Assembly of Graphene Networks at 1 vol% Enables Piezoresistive and Electrothermal Silicone Foams",
+        "student_name": "Brenden Ferland",
+        "weighted_score": 3,
+        "first_place_count": 1,
+        "second_place_count": 0,
+        "third_place_count": 0,
+        "total_votes": 1
+    },
+    {
+        "poster_number": 16,
+        "poster_title": "Triple-Layered Core-Shell Microneedle Patch for Sustained Analgesic Delivery and Chondroprotection in Osteoarthritis",
+        "student_name": "Hoang-Phuc Pham",
+        "weighted_score": 2,
+        "first_place_count": 0,
+        "second_place_count": 0,
+        "third_place_count": 2,
+        "total_votes": 2
+    },
+    {
+        "poster_number": 17,
+        "poster_title": "Polymer Ligand-Engineered Nanoparticle Interfaces for Selective Ion Transport to Enhance CO2 Electroreduction",
+        "student_name": "Debasmita Muhuri",
+        "weighted_score": 1,
+        "first_place_count": 0,
+        "second_place_count": 0,
+        "third_place_count": 1,
+        "total_votes": 1
+    }
+]
