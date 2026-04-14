@@ -16,73 +16,88 @@ export const TIMELINE = [
   { t: 5000, type: 'mode', mode: 'gallery' },
   { t: 5400, type: 'scene-card', text: '1.  Checking in', duration: 1500 },
   { t: 7100, type: 'welcome' },
+
+  // The welcome overlay has three "how to" steps. Spotlight them one by one
+  // so the viewer actually reads the tutorial instead of dismissing it.
   { t: 9500, type: 'highlight', selector: '.welcome-fact__code', position: 'bottom',
     label: 'your codename',
     text: 'Every attendee gets a polymer-themed codename at check-in. No email, no password, no signup.',
-    duration: 5000 },
-  { t: 14800, type: 'highlight', selector: '.welcome-fact__text', position: 'bottom',
+    duration: 4800 },
+  { t: 14400, type: 'highlight', selector: '.welcome-fact__text', position: 'bottom',
     label: 'your fact',
-    text: 'Each code comes with a personalized polymer fact — a keepsake moment that doubles as trivia later.',
-    duration: 5200 },
-  { t: 20300, type: 'dismiss-welcome' },
+    text: 'Each code comes with a polymer fact — a keepsake moment that doubles as trivia at the end.',
+    duration: 4500 },
+
+  { t: 19000, type: 'highlight', selector: '.welcome-step:nth-of-type(1) .welcome-step__title', position: 'right',
+    label: 'step 1 — visit',
+    text: 'Attendees walk the gallery and note poster numbers they want to remember.',
+    duration: 3500 },
+  { t: 22700, type: 'highlight', selector: '.welcome-step:nth-of-type(2) .welcome-step__title', position: 'right',
+    label: 'step 2 — log',
+    text: 'Tap the number to log a visit. Works offline — visits sync when the network comes back.',
+    duration: 3500 },
+  { t: 26400, type: 'highlight', selector: '.welcome-step:nth-of-type(3) .welcome-step__title', position: 'right',
+    label: 'step 3 — vote',
+    text: 'After 3 visits, voting unlocks. Rank your top 3 — weighted 3–2–1.',
+    duration: 3500 },
+
+  { t: 30300, type: 'dismiss-welcome' },
 
   // ═════════ 2. Explore the gallery ════════════════════════════
-  { t: 21000, type: 'scene-card', text: '2.  Exploring the gallery', duration: 1500 },
-  { t: 22500, type: 'highlight', selector: '.poster-card', position: 'right',
+  { t: 31000, type: 'scene-card', text: '2.  Exploring the gallery', duration: 1500 },
+  { t: 32500, type: 'highlight', selector: '.poster-card', position: 'right',
     label: 'poster card',
     text: 'Tap any card to see the full abstract, bookmark it, or log a visit.',
     duration: 4500 },
-  { t: 27300, type: 'feed', actor: '_rand_', action: 'opened poster #7 — Cannabinoid antimicrobial SAR' },
-  { t: 29500, type: 'feed', actor: '_rand_', action: 'logged a visit from Jonal Labs' },
-  { t: 31800, type: 'feed', actor: '_rand_', action: 'signed in from AirBoss (Rochester)' },
+  { t: 37300, type: 'feed', actor: '_rand_', action: 'opened poster #7 — Cannabinoid antimicrobial SAR' },
+  { t: 39500, type: 'feed', actor: '_rand_', action: 'logged a visit from Jonal Labs' },
+  { t: 41800, type: 'feed', actor: '_rand_', action: 'signed in from AirBoss (Rochester)' },
 
   // ═════════ 3. Rank your top 3 ════════════════════════════════
-  { t: 34000, type: 'mode', mode: 'vote' },
-  { t: 34500, type: 'scene-card', text: '3.  Ranked ballot — top 3', duration: 1600 },
-  { t: 36500, type: 'narrator', trackAware: true, duration: 5500,
+  { t: 44000, type: 'mode', mode: 'vote' },
+  { t: 44500, type: 'scene-card', text: '3.  Ranked ballot — top 3', duration: 1600 },
+  { t: 46500, type: 'narrator', trackAware: true, duration: 5500,
     text: 'Ranked voting (3–2–1). You\'re voting in the {track}.' },
-  { t: 42500, type: 'narrator', duration: 4500,
+  { t: 52500, type: 'narrator', duration: 4500,
     text: 'Two award tracks run in parallel: Distinguished (industry-judged) and Peer Impact (peer-judged).' },
 
   // ═════════ 4. Confirm + event in progress ════════════════════
-  { t: 47500, type: 'mode', mode: 'confirm' },
-  { t: 48000, type: 'scene-card', text: '4.  Confirmation & schedule', duration: 1500 },
-  { t: 50000, type: 'narrator', duration: 4500,
+  { t: 57500, type: 'mode', mode: 'confirm' },
+  { t: 58000, type: 'scene-card', text: '4.  Confirmation & schedule', duration: 1500 },
+  { t: 60000, type: 'narrator', duration: 4500,
     text: 'Attendees see the event schedule, their picks, and live stats while votes keep arriving.' },
-  { t: 54800, type: 'feed', actor: '_rand_', action: 'submitted their ranked ballot' },
-  { t: 57500, type: 'feed', actor: '_rand_', action: 'deep-dwelled 869s on poster #3' },
-  { t: 60000, type: 'feed', actor: '_rand_', action: 'voted from Jonal Labs' },
+  { t: 64800, type: 'feed', actor: '_rand_', action: 'submitted their ranked ballot' },
+  { t: 67500, type: 'feed', actor: '_rand_', action: 'deep-dwelled 869s on poster #3' },
+  { t: 70000, type: 'feed', actor: '_rand_', action: 'voted from Jonal Labs' },
 
   // ═════════ 5. Admin live dashboard ═══════════════════════════
-  { t: 62500, type: 'mode', mode: 'admin' },
-  { t: 63000, type: 'scene-card', text: '5.  The admin\'s view', duration: 1800 },
-  { t: 65000, type: 'narrator', duration: 5000,
+  { t: 72500, type: 'mode', mode: 'admin' },
+  { t: 73000, type: 'scene-card', text: '5.  The admin\'s view', duration: 1800 },
+  { t: 75000, type: 'narrator', duration: 5000,
     text: 'Admin sees the full event live — vote counts climbing, activity feed, and the phase toggle.' },
-  { t: 70200, type: 'feed', actor: '_rand_', action: 'voted (Peer Impact)' },
-  { t: 72500, type: 'feed', actor: '_rand_', action: 'added a note to poster #18' },
-  { t: 75000, type: 'feed', actor: '_rand_', action: 'logged 16 visits total' },
-  { t: 77800, type: 'narrator', kind: 'gold', duration: 3500,
+  { t: 80200, type: 'feed', actor: '_rand_', action: 'voted (Peer Impact)' },
+  { t: 82500, type: 'feed', actor: '_rand_', action: 'added a note to poster #18' },
+  { t: 85000, type: 'feed', actor: '_rand_', action: 'logged 16 visits total' },
+  { t: 87800, type: 'narrator', kind: 'gold', duration: 3500,
     text: 'All 108 votes in — ready to close voting.' },
 
   // ═════════ 6. Results podium ═════════════════════════════════
-  { t: 81500, type: 'mode', mode: 'results' },
-  { t: 82000, type: 'scene-card', text: '6.  Winners — announced live', duration: 1800 },
-  { t: 83500, type: 'confetti' },
-  { t: 85000, type: 'narrator', kind: 'gold', duration: 4500,
-    text: 'Distinguished #1: Zhiming Li — 17 pts (4×1st-place · 2×2nd · 1×3rd).' },
-  { t: 90000, type: 'narrator', kind: 'gold', duration: 4500,
+  { t: 91500, type: 'mode', mode: 'results' },
+  { t: 92000, type: 'scene-card', text: '6.  Winners — announced live', duration: 1800 },
+  { t: 93500, type: 'confetti' },
+  { t: 95000, type: 'narrator', kind: 'gold', duration: 4500,
+    text: 'Distinguished #1: Zhiming Li — 17 pts (4×1st · 2×2nd · 1×3rd).' },
+  { t: 100000, type: 'narrator', kind: 'gold', duration: 4500,
     text: 'Peer Impact #1: Mohak Desai — 15 pts (5×1st-place).' },
-  { t: 94800, type: 'narrator', duration: 4500,
+  { t: 104800, type: 'narrator', duration: 4500,
     text: 'Both podiums render on every attendee\'s phone at the same moment.' },
 
   // ═════════ 7. Trivia — the codename callback ═════════════════
-  { t: 100000, type: 'scene-card', text: '7.  Trivia — polymer facts recap', duration: 1600 },
-  { t: 101800, type: 'trivia' },
+  { t: 110000, type: 'scene-card', text: '7.  Trivia — polymer facts recap', duration: 1600 },
+  { t: 111800, type: 'trivia' },
 
   // ═════════ 8. CTA ════════════════════════════════════════════
-  // Note: trivia pauses the timer during its ~20s run. The CTA fires
-  // as soon as trivia completes (via pauseElapsedTimer/resumeElapsedTimer
-  // in simulator). The loop entry below is the hard ceiling.
-  { t: 102000, type: 'cta-overlay' },
+  // Trivia pauses the timer. CTA fires when trivia ends.
+  { t: 112000, type: 'cta-overlay' },
   { t: 300000, type: 'loop' },
 ]
