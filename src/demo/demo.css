@@ -189,6 +189,79 @@ body.has-demo-banner { padding-top: 72px; }
   .demo-toast { top: 128px; max-width: 90vw; font-size: 0.82rem; text-align: center; }
 }
 
+/* ── Title card (cold open) ──────────────────────────── */
+.demo-title-card {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 8, 18, 0.94);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.demo-title-card--visible { opacity: 1; }
+.demo-title-card__inner {
+  text-align: center;
+  padding: 0 1.5rem;
+  transform: translateY(14px);
+  transition: transform 0.4s ease;
+}
+.demo-title-card--visible .demo-title-card__inner { transform: translateY(0); }
+.demo-title-card__line {
+  color: #dfe5ff;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.demo-title-card__line--0 { font-size: 2.4rem; color: #ffae00; margin-bottom: 0.4rem; }
+.demo-title-card__line--1 { font-size: 1.2rem; font-weight: 600; color: #bcc3de; }
+.demo-title-card__sub {
+  margin-top: 1.4rem;
+  font-size: 0.8rem;
+  color: #8892b0;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+@media (max-width: 640px) {
+  .demo-title-card__line--0 { font-size: 1.7rem; }
+  .demo-title-card__line--1 { font-size: 0.95rem; }
+}
+
+/* ── Scene transition card ───────────────────────────── */
+.demo-scene-card {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  z-index: 940;
+  padding: 0.7rem 1.25rem;
+  border-radius: 999px;
+  background: rgba(17, 24, 42, 0.96);
+  border: 1px solid rgba(255, 174, 0, 0.55);
+  color: #ffae00;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  max-width: 90vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.demo-scene-card--visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+@media (max-width: 640px) {
+  .demo-scene-card { top: 140px; font-size: 0.85rem; padding: 0.55rem 1rem; }
+}
+
 /* ── CTA overlay ─────────────────────────────────────── */
 .demo-cta-overlay {
   position: fixed;

@@ -122,8 +122,24 @@ export async function getVisitLeaderboard() {
 export async function setEventPhase() { return true }
 export async function updateSchedule() { return true }
 
-// Admin/board methods that would otherwise hit the DB — return benign shapes.
-export async function getAllVisitCounts() { return {} }
+// Admin/board methods — stubbed with realistic demo data.
+export async function getAllVisitCounts() {
+  const counts = {}
+  for (const v of inMemoryVisits) {
+    counts[v.poster_number] = (counts[v.poster_number] || 0) + 1
+  }
+  return counts
+}
+export async function getAllAttendees() {
+  return staticAttendees.map(a => ({ ...a, checked_in_at: a.checked_in_at || null }))
+}
+export async function getVoterCodes() {
+  return Array.from(new Set(inMemoryVotes.map(v => v.attendee_code)))
+}
+export async function updateAttendeeName() { return true }
+export async function adminTogglePoster() { return true }
+export async function adminResetVotes() { return true }
+export async function adminResetAttendeeVotes() { return true }
 export async function resetAttendeeVotes() { return true }
 export async function togglePosterActive() { return true }
 export async function updatePoster() { return true }

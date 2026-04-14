@@ -14,6 +14,9 @@ import { renderConfirm } from './views/confirm.js'
 import { startDemo } from './demo/simulator.js'
 import { mountDemoBanner } from './demo/banner.js'
 
+// Admin view — lazy-loaded for the admin scene of the demo.
+const renderAdmin = (root) => import('./views/admin.js').then(m => m.renderAdmin(root))
+
 async function boot() {
   loadState()
 
@@ -26,7 +29,7 @@ async function boot() {
   registerRoute('#/gallery', renderGallery)
   registerRoute('#/vote', renderVote)
   registerRoute('#/confirm', renderConfirm)
-  // admin/board/checkin views are not in the demo build.
+  registerRoute('#/admin', renderAdmin)
 
   // Auto-auth: if ?code= param present, route to auth
   if (new URLSearchParams(window.location.search).get('code')) {
