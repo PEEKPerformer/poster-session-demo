@@ -144,6 +144,49 @@ export function setDemoSpeed(newSpeed) {
   emit()
 }
 
+// Seek to an absolute timeline position (ms). Replays state-changing events
+// (mode/phase/welcome/etc.) without delays, skips pure ephemerals (toasts,
+// scene cards, feed, highlights, bursts) so the view lands in the right
+// composed state for that moment in the timeline. Always pauses; viewer
+// hits play to resume from the new position.
+export function seekDemo(targetMs) {
+  clearTimeout(timerId)
+  paused = true
+
+  // Clear visual ephemera
+  document.querySelectorAll(
+    '.demo-toast, .demo-scene-card, .demo-feed, .demo-title-card, .welcome-overlay, .poster-modal, .demo-cta-overlay, .demo-trivia, .demo-resume-chip'
+  ).forEach(n => n.remove())
+  clearHighlight()
+
+  // Reset viewer state to base then re-apply state-changing events up to target
+  setState({
+    attendee: window.__demoViewer || { code: 'CHAIN', name: 'Guest', role: 'attendee' },
+    eventPhase: 'session',
+    visits: [],
+    myVotes: [],
+  })
+
+  nextIndex = 0
+  while (nextIndex < activeTimeline.length && activeTimeline[nextIndex].t <= targetMs) {
+    const ev = activeTimeline[nextIndex]
+    // Only apply structural / state-changing events on seek; skip ephemerals
+    // and welcome (welcome would re-pop; let user replay the tour to see it)
+    if (['mode', 'phase', 'switch-attendee', 'navigate', 'open-modal',
+         'submit-ballot', 'log-visit', 'select', 'click-phase-flip',
+         'cta-overlay', 'trivia'].includes(ev.type)) {
+      try { handleEvent(ev) } catch { /* skip */ }
+    }
+    nextIndex++
+  }
+
+  pausedElapsed = targetMs
+  showResumeChip()
+  emit()
+}
+
+export function getTotalDuration() { return getTotal() }
+
 export function getDemoSpeed() { return speed }
 
 // ── Event handlers ────────────────────────────────────────────

@@ -114,14 +114,45 @@ body.has-demo-banner .poster-modal { top: 104px; }
 }
 .demo-banner__cta:hover { transform: translateY(-1px); }
 .demo-banner__progress {
-  height: 3px;
-  background: rgba(255, 255, 255, 0.06);
+  position: relative;
+  height: 14px; /* larger hit target for scrubbing */
+  padding: 5px 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: none;
+}
+.demo-banner__progress::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 50%;
+  height: 4px; margin-top: -2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
 }
 .demo-banner__progress-fill {
-  height: 100%;
+  position: absolute;
+  left: 0; top: 50%;
+  height: 4px; margin-top: -2px;
   width: 0%;
   background: linear-gradient(90deg, #ffae00, #ff6b00);
-  transition: width 0.25s linear;
+  border-radius: 2px;
+  transition: width 0.15s linear;
+  pointer-events: none;
+}
+.demo-banner__progress-thumb {
+  position: absolute;
+  left: 0%; top: 50%;
+  width: 12px; height: 12px;
+  margin-left: -6px; margin-top: -6px;
+  border-radius: 50%;
+  background: #ffae00;
+  box-shadow: 0 0 0 3px rgba(255, 174, 0, 0.25), 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: left 0.15s linear, transform 0.12s ease;
+  pointer-events: none;
+}
+.demo-banner__progress:hover .demo-banner__progress-thumb,
+.demo-banner__progress:focus .demo-banner__progress-thumb {
+  transform: scale(1.25);
 }
 
 @media (max-width: 640px) {
