@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poster Session Demo</title>
+  <script>
+    // GitHub Pages SPA fallback: strip the /poster-session-demo prefix and
+    // preserve the rest as a hash route.
+    var base = '/poster-session-demo'
+    var path = window.location.pathname.replace(base, '')
+    if (path && path !== '/') {
+      window.location.replace(base + '/#' + path)
+    } else {
+      window.location.replace(base + '/')
+    }
+  </script>
+</head>
+<body></body>
+</html>
