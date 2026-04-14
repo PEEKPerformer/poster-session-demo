@@ -26,6 +26,19 @@ export async function getAllPostersAdmin() {
 }
 
 export async function getEventState() {
+  // Demo: read from the running app's state when available so tab-triggered
+  // phase changes (e.g. clicking Results) aren't clobbered by the 5s poll in
+  // vote.js which otherwise overwrites state.eventPhase back to 'session'.
+  try {
+    const live = typeof window !== 'undefined' && window.__demoGetState?.()
+    if (live?.eventPhase) {
+      return {
+        phase: live.eventPhase,
+        updated_at: live.phaseUpdatedAt || staticEventState.updated_at,
+        schedule: staticEventState.schedule || [],
+      }
+    }
+  } catch { /* fall through */ }
   return {
     phase: staticEventState.phase,
     updated_at: staticEventState.updated_at,
@@ -89,11 +102,17 @@ export async function tallyVotes() { return recomputeTallies().distinguished }
 export async function tallyStudentVotes() { return recomputeTallies().peer }
 
 export async function getStats() {
+  const attendees = staticAttendees.length
+  const visits = inMemoryVisits.length
+  const votes = inMemoryVotes.length
+  const voters = new Set(inMemoryVotes.map(v => v.attendee_code)).size
+  // Return both naming conventions — some views read snake_case, others
+  // camelCase (confirm.js uses totalVisits / voters).
   return {
-    total_attendees: staticAttendees.length,
-    total_visits: inMemoryVisits.length,
-    total_votes: inMemoryVotes.length,
-    total_voters: new Set(inMemoryVotes.map(v => v.attendee_code)).size,
+    total_attendees: attendees, attendees,
+    total_visits: visits,       totalVisits: visits,
+    total_votes: votes,         totalVotes: votes,
+    total_voters: voters,       voters,
   }
 }
 

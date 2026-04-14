@@ -21,6 +21,11 @@ const renderAdmin = (root) => import('./views/admin.js').then(m => m.renderAdmin
 async function boot() {
   loadState()
 
+  // Expose live state lookup so the demo supabase stub can return the current
+  // phase (instead of the frozen static snapshot) when polled — otherwise
+  // tab-triggered 'results' mode gets overwritten by the 5s poll in vote.js.
+  window.__demoGetState = getState
+
   // Re-identify returning users on boot
   const saved = getState().attendee
   if (saved) identify(saved.code, { name: saved.name, role: saved.role })
