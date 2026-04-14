@@ -108,7 +108,7 @@ export const TIMELINE = [
     duration: 4700 },
   { t: 93600, type: 'highlight', selector: '.poster-modal__summary', position: 'bottom',
     label: 'short blurb',
-    text: 'Presenter-written hook. We never auto-generate \u2014 the author\'s voice stays the author\'s voice.',
+    text: 'A hook for non-technical visitors \u2014 the elevator pitch. A real challenge for students used to writing for technical audiences.',
     duration: 5000 },
   { t: 98700, type: 'highlight', selector: '.poster-modal__abstract-toggle', position: 'bottom',
     label: 'read abstract',
@@ -192,7 +192,7 @@ export const TIMELINE = [
     text: 'Every visit + every vote, live. Votes batched 300ms so you see "Jane voted 1st/2nd/3rd" as one line.',
     duration: 5500 },
   { t: 215800, type: 'narrator', duration: 5000,
-    text: 'From a 30-person department day to a 2,000-attendee mid-conference \u2014 same app, same experience. No per-attendee fees.' },
+    text: 'Same app whether your event is 30 people or 2,000 \u2014 dept day, society chapter, or mid-conference.' },
 
   // ═══ 8. 3:00 PM \u2014 Voting closes ═════════════════════════════════
   { t: 221000, type: 'narrator', kind: 'gold', duration: 3500,

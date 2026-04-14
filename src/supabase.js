@@ -106,9 +106,11 @@ export async function getStats() {
   const visits = inMemoryVisits.length
   const votes = inMemoryVotes.length
   const voters = new Set(inMemoryVotes.map(v => v.attendee_code)).size
-  // Return both naming conventions — some views read snake_case, others
-  // camelCase (confirm.js uses totalVisits / voters).
+  // checkins = unique attendees with ≥1 visit (admin dashboard reads
+  // stats.checkins as the first big-number card)
+  const checkins = new Set(inMemoryVisits.map(v => v.attendee_code)).size
   return {
+    checkins,
     total_attendees: attendees, attendees,
     total_visits: visits,       totalVisits: visits,
     total_votes: votes,         totalVotes: votes,
@@ -143,17 +145,22 @@ export async function updateSchedule() { return true }
 
 // Admin/board methods — stubbed with realistic demo data.
 export async function getAllVisitCounts() {
+  // admin renders this as a horizontal bar chart; expects an Array of
+  // {poster_number, count} sorted desc.
   const counts = {}
   for (const v of inMemoryVisits) {
     counts[v.poster_number] = (counts[v.poster_number] || 0) + 1
   }
-  return counts
+  return Object.entries(counts)
+    .map(([num, count]) => ({ poster_number: parseInt(num, 10), count }))
+    .sort((a, b) => b.count - a.count)
 }
 export async function getAllAttendees() {
   return staticAttendees.map(a => ({ ...a, checked_in_at: a.checked_in_at || null }))
 }
 export async function getVoterCodes() {
-  return Array.from(new Set(inMemoryVotes.map(v => v.attendee_code)))
+  // admin uses voterCodes.has(code) — must be a Set, not an Array.
+  return new Set(inMemoryVotes.map(v => v.attendee_code))
 }
 export async function updateAttendeeName() { return true }
 export async function adminTogglePoster() { return true }
