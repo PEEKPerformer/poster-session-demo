@@ -1,6 +1,15 @@
-// Full cinematic walkthrough — every meaningful feature gets a highlight.
-// Sourced from an exhaustive read-only scan of poster-session-app on 2026-04-14.
-// Runs ~7 minutes end-to-end; viewer can tab-jump anywhere to skip.
+// Cinematic walkthrough that mirrors the real Spring 2026 event arc.
+//
+// Real-event timing:
+//   12:00–12:30  doors open / check-in
+//   12:30–1:30   peak gallery browsing
+//   1:30–2:30    voting opens up; people sit for talks
+//   2:30–3:00    talks running; late ballots come in
+//   3:00         voting closes; admin flips phase
+//   4:00         awards ceremony
+//
+// The demo compresses ~4 hours into ~5 minutes but preserves the order so
+// each scene reads as a real moment in the day.
 
 export const TIMELINE = [
   // ═══ 0. Cold open ═══════════════════════════════════════════
@@ -9,10 +18,10 @@ export const TIMELINE = [
     sub: 'Let it play · touch to pause · tabs to jump · designed for phones',
     duration: 5200 },
 
-  // ═══ 1. Check-in / welcome tutorial ═════════════════════════
+  // ═══ 1. 12:15 PM \u2014 Check-in ═══════════════════════════════════
   { t: 5200,  type: 'mode', mode: 'gallery' },
-  { t: 5700,  type: 'scene-card', text: '1.  Checking in', duration: 1600 },
-  { t: 7400,  type: 'welcome' },
+  { t: 5700,  type: 'scene-card', text: '12:15 PM  ·  Checking in', duration: 1800 },
+  { t: 7600,  type: 'welcome' },
 
   { t: 10500, type: 'highlight', selector: '.welcome-fact__code', position: 'bottom',
     label: 'your codename',
@@ -41,8 +50,8 @@ export const TIMELINE = [
 
   { t: 39500, type: 'dismiss-welcome' },
 
-  // ═══ 2. Gallery overview ════════════════════════════════════
-  { t: 40300, type: 'scene-card', text: '2.  The gallery', duration: 1600 },
+  // ═══ 2. 12:30 PM \u2014 Gallery opens up ════════════════════════════
+  { t: 40300, type: 'scene-card', text: '12:30 PM  ·  Poster session begins', duration: 1800 },
   { t: 42100, type: 'highlight', selector: '.identity-chip', position: 'bottom',
     label: 'who you are',
     text: 'Codename, first name, deterministic avatar color. Same code always renders the same color across devices.',
@@ -57,7 +66,7 @@ export const TIMELINE = [
     duration: 4500 },
   { t: 55700, type: 'highlight', selector: '.gallery-pulse', position: 'top',
     label: 'live pulse',
-    text: 'Real-time count of every visit across the room. Supabase realtime \u2014 no polling.',
+    text: 'Real-time count of every visit across the room. No polling \u2014 it just updates.',
     duration: 4500 },
   { t: 60400, type: 'highlight', selector: '.poster-card', position: 'right',
     label: 'poster card',
@@ -67,75 +76,11 @@ export const TIMELINE = [
     label: 'quick-log',
     text: 'Power-user path: tap the floating button, punch the poster number on a numpad. Haptic on every key.',
     duration: 4800 },
-  { t: 70300, type: 'feed', actor: '_rand_', action: 'opened poster #7 \u2014 Cannabinoid antimicrobial SAR' },
-  { t: 72600, type: 'feed', actor: '_rand_', action: 'logged a visit from Jonal Labs' },
-  { t: 73800, type: 'narrator', duration: 4500,
-    text: 'Spring 2026 stat: app absorbed 106 Wi-Fi flips \u2014 41% of visits logged offline, 0 data loss.' },
 
-  // ═══ 3. Poster modal deep dive ══════════════════════════════
-  { t: 74900, type: 'scene-card', text: '3.  Inside a poster card', duration: 1700 },
-  { t: 76700, type: 'open-modal', poster: 13 },
-  { t: 78200, type: 'highlight', selector: '.modal__headshot', position: 'right',
-    label: 'presenter',
-    text: 'Photo + advisor. If no headshot, colored initials keyed from a hash of the name \u2014 never blank.',
-    duration: 4700 },
-  { t: 83100, type: 'highlight', selector: '.poster-modal__summary', position: 'bottom',
-    label: 'short blurb',
-    text: 'Presenter-written hook. We never auto-generate \u2014 the author\'s voice stays the author\'s voice.',
-    duration: 5000 },
-  { t: 88300, type: 'highlight', selector: '.poster-modal__abstract-toggle', position: 'bottom',
-    label: 'read abstract',
-    text: 'Full abstract hidden by default to keep cards scannable. One tap expands.',
-    duration: 4800 },
-  { t: 93300, type: 'highlight', selector: '.modal__notes--promoted', position: 'top',
-    label: 'your notes',
-    text: 'Jot questions, follow-up ideas, or intros. Saved to this device. Exportable from the gallery.',
-    duration: 5500 },
-  { t: 99000, type: 'highlight', selector: '.modal__log-visit', position: 'top',
-    label: 'log visit',
-    text: 'Counts toward your 3 to unlock voting. Works offline \u2014 the modal never blocks on a network call.',
-    duration: 5000 },
-  { t: 104200, type: 'close-modal' },
-  { t: 105000, type: 'narrator', duration: 4500,
-    text: 'Same card design on gallery, vote ballot, and confirm \u2014 one mental model across the event.' },
-
-  // ═══ 4. Ranked ballot ═══════════════════════════════════════
-  { t: 110000, type: 'mode', mode: 'vote' },
-  { t: 110500, type: 'scene-card', text: '4.  Ranked ballot', duration: 1700 },
-  { t: 112300, type: 'narrator', trackAware: true, duration: 5500,
-    text: 'Ranked voting (3\u20132\u20131). You\u2019re voting in the {track}.' },
-  { t: 118000, type: 'highlight', selector: '.vote-instructions', position: 'bottom',
-    label: 'instructions',
-    text: 'Three-step instructions stay pinned above the grid until you\'ve ranked all three.',
-    duration: 5000 },
-  { t: 123200, type: 'narrator', duration: 5000,
-    text: 'Distinguished Poster (industry panel + cash prize) and Peer Impact (peer panel) run in parallel.' },
-  { t: 128500, type: 'highlight', selector: '.poster-card', position: 'right',
-    label: 'tap to rank',
-    text: 'Tap once = 1st pick, again = 2nd, again = 3rd. Tap a picked card to drop it. Max 3.',
-    duration: 5000 },
-  { t: 133700, type: 'narrator', duration: 4500,
-    text: 'Server enforces the weighting: 3 points for 1st, 2 for 2nd, 1 for 3rd. Same SQL for both tracks.' },
-  { t: 138500, type: 'narrator', duration: 4500,
-    text: 'Spring 2026: 34% of voters changed their mind before submitting. The ballot is designed for that.' },
-
-  // ═══ 5. Confirm / schedule / stats ══════════════════════════
-  { t: 138500, type: 'mode', mode: 'confirm' },
-  { t: 139000, type: 'scene-card', text: '5.  Thanks + stay-for-the-ceremony', duration: 1700 },
-  { t: 140800, type: 'highlight', selector: '.confirm-check', position: 'bottom',
-    label: 'success moment',
-    text: 'Animated checkmark + confetti. Small delight after voting.',
-    duration: 4500 },
-  { t: 145500, type: 'narrator', duration: 4500,
-    text: 'Attendees see the schedule, their ranked picks, and live event stats \u2014 a reason to stay seated.' },
-  { t: 150300, type: 'highlight', selector: '#confirm-stats', position: 'top',
-    label: 'event pulse',
-    text: 'Three live stats that refresh every 30 seconds. Posters explored, total visits today, votes cast.',
-    duration: 5000 },
-  // ═══ 5b. "The room at peak" \u2014 burst of activity ═══════════════
-  { t: 155500, type: 'scene-card', text: 'The room at peak', duration: 1500 },
-  { t: 156800, type: 'burst',
-    toast: 'That was 11 things happening in the last 4 seconds.',
+  // ═══ 3. 1:00 PM \u2014 The room at peak (burst) ═════════════════════
+  { t: 70500, type: 'scene-card', text: '1:00 PM  ·  The room at peak', duration: 1700 },
+  { t: 72300, type: 'burst',
+    toast: 'That was 11 things happening in the last 4 seconds. Multiply by an hour.',
     kind: 'gold',
     stagger: 320,
     items: [
@@ -151,84 +96,140 @@ export const TIMELINE = [
       'VULC joined the gallery',
       'GRAFT submitted their ballot',
     ] },
+  { t: 80800, type: 'narrator', duration: 4500,
+    text: 'Spring 2026 stat: 106 Wi-Fi flips absorbed \u2014 41% of visits logged offline, 0 data loss.' },
 
-  // ═══ 6. Admin dashboard ═════════════════════════════════════
-  { t: 162500, type: 'mode', mode: 'admin' },
-  { t: 163000, type: 'scene-card', text: '6.  The admin\u2019s view', duration: 1800 },
-  { t: 164800, type: 'narrator', duration: 5000,
-    text: 'Admin sees the whole event live. No polling on this page \u2014 every visit and vote streams in via Supabase realtime.' },
-  { t: 170000, type: 'highlight', selector: '#phase-toggle', position: 'bottom',
-    label: 'phase toggle',
-    text: 'Two phases: Session (voting open) and Results. Flipping to Results triggers a 45-second grace period plus a live celebration on every phone.',
-    duration: 6000 },
-  { t: 176200, type: 'narrator', duration: 4500,
-    text: 'One tap flips the ceremony. Every phone in the room updates at the same second \u2014 no refresh.' },
-  { t: 181000, type: 'highlight', selector: '#stats-grid', position: 'bottom',
-    label: 'live stats',
-    text: 'Check-ins, visits, voters \u2014 auto-updating via realtime. No refresh.',
+  // ═══ 4. 1:15 PM \u2014 Inside a single poster ═══════════════════════
+  { t: 85500, type: 'scene-card', text: '1:15 PM  ·  Inside a poster', duration: 1700 },
+  { t: 87300, type: 'open-modal', poster: 13 },
+  { t: 88800, type: 'highlight', selector: '.modal__headshot', position: 'right',
+    label: 'presenter',
+    text: 'Photo + advisor. If no headshot, colored initials keyed from a hash of the name \u2014 never blank.',
     duration: 4700 },
-  { t: 185800, type: 'highlight', selector: '#attendee-list-container', position: 'top',
+  { t: 93600, type: 'highlight', selector: '.poster-modal__summary', position: 'bottom',
+    label: 'short blurb',
+    text: 'Presenter-written hook. We never auto-generate \u2014 the author\'s voice stays the author\'s voice.',
+    duration: 5000 },
+  { t: 98700, type: 'highlight', selector: '.poster-modal__abstract-toggle', position: 'bottom',
+    label: 'read abstract',
+    text: 'Full abstract hidden by default to keep cards scannable. One tap expands.',
+    duration: 4800 },
+  { t: 103600, type: 'highlight', selector: '.modal__notes--promoted', position: 'top',
+    label: 'your notes',
+    text: 'Jot questions, follow-up ideas, or intros. Saved to this device. Exportable from the gallery.',
+    duration: 5500 },
+  { t: 109200, type: 'highlight', selector: '.modal__log-visit', position: 'top',
+    label: 'log visit',
+    text: 'Counts toward your 3 to unlock voting. Works offline \u2014 the modal never blocks on a network call.',
+    duration: 5000 },
+  { t: 114300, type: 'close-modal' },
+
+  // ═══ 5. 2:00 PM \u2014 Voting opens up ════════════════════════════
+  { t: 115500, type: 'mode', mode: 'vote' },
+  { t: 116000, type: 'scene-card', text: '2:00 PM  ·  Ranking my top 3', duration: 1800 },
+  { t: 117800, type: 'narrator', trackAware: true, duration: 5500,
+    text: 'Ranked voting (3\u20132\u20131). You\u2019re voting in the {track}.' },
+  { t: 123500, type: 'highlight', selector: '.vote-instructions', position: 'bottom',
+    label: 'instructions',
+    text: 'Three-step instructions stay pinned above the grid until you\u2019ve ranked all three.',
+    duration: 5000 },
+  { t: 128700, type: 'narrator', duration: 5000,
+    text: 'Distinguished Poster (industry panel + cash prize) and Peer Impact (peer panel) run in parallel.' },
+  { t: 134000, type: 'highlight', selector: '.poster-card', position: 'right',
+    label: 'tap to rank',
+    text: 'Tap once = 1st pick, again = 2nd, again = 3rd. Tap a picked card to drop it. Max 3.',
+    duration: 5000 },
+
+  // ═══ 6. 2:30 PM \u2014 Talks begin, take a seat ═════════════════════
+  { t: 139500, type: 'mode', mode: 'confirm' },
+  { t: 140000, type: 'scene-card', text: '2:30 PM  ·  Talks begin \u2014 take a seat', duration: 1800 },
+  { t: 141900, type: 'highlight', selector: '.confirm-check', position: 'bottom',
+    label: 'success moment',
+    text: 'Animated checkmark + confetti the moment your ballot lands.',
+    duration: 4500 },
+  { t: 146600, type: 'narrator', duration: 4500,
+    text: 'Schedule, your picks, and live event stats stay on screen during the talks \u2014 reason to stay seated.' },
+  { t: 151300, type: 'highlight', selector: '#confirm-stats', position: 'top',
+    label: 'event pulse',
+    text: 'Three live stats refreshing every 30 seconds: posters explored, total visits today, votes cast.',
+    duration: 5000 },
+  { t: 156400, type: 'feed', actor: '_rand_', action: 'submitted a late ballot from row 3' },
+  { t: 158700, type: 'feed', actor: '_rand_', action: 'voted (Peer Impact track)' },
+
+  // ═══ 7. 2:45 PM \u2014 Admin watches it all live ═══════════════════
+  { t: 161000, type: 'mode', mode: 'admin' },
+  { t: 161500, type: 'scene-card', text: '2:45 PM  ·  Admin watches it all live', duration: 1800 },
+  { t: 163400, type: 'narrator', duration: 5000,
+    text: 'Admin sees the whole event live. Every visit and vote streams in \u2014 no refresh, no polling.' },
+  { t: 168600, type: 'highlight', selector: '#phase-toggle', position: 'bottom',
+    label: 'phase toggle',
+    text: 'Two phases: Session and Results. The flip triggers a 45-second grace period plus a live celebration on every phone.',
+    duration: 6000 },
+  { t: 174800, type: 'narrator', duration: 4500,
+    text: 'One tap flips the ceremony. Every phone updates at the same second \u2014 no refresh.' },
+  { t: 179500, type: 'highlight', selector: '#stats-grid', position: 'bottom',
+    label: 'live stats',
+    text: 'Check-ins, visits, voters \u2014 auto-updating. No refresh needed.',
+    duration: 4700 },
+  { t: 184400, type: 'highlight', selector: '#attendee-list-container', position: 'top',
     label: 'attendees',
     text: 'Grouped by role. Inline rename for walk-ups ("Voter 42" \u2192 real name). Per-attendee vote reset if someone messed up.',
     duration: 5500 },
-  { t: 191400, type: 'narrator', duration: 4500,
-    text: 'Ballots stay private \u2014 attendees only see their own picks. Admins can fix a typo or reset one vote without touching anyone else\u2019s.' },
-  { t: 196200, type: 'highlight', selector: '#results-container', position: 'top',
+  { t: 190100, type: 'narrator', duration: 4500,
+    text: 'Ballots stay private \u2014 attendees only see their own picks. Admins can fix a typo without touching anyone else\u2019s.' },
+  { t: 194800, type: 'highlight', selector: '#results-container', position: 'top',
     label: 'live tallies',
     text: 'Two weighted tables: Distinguished + Peer Impact. Ties break on deepest support first.',
     duration: 5200 },
-  { t: 201600, type: 'narrator', duration: 4500,
-    text: 'Voting rules enforced on our side. 3\u20132\u20131 scoring and the 45-second grace period can\u2019t be spoofed from a phone.' },
-  { t: 206300, type: 'highlight', selector: '#schedule-editor', position: 'top',
+  { t: 200200, type: 'narrator', duration: 4500,
+    text: 'Voting rules enforced on our side. 3\u20132\u20131 scoring and the grace period can\u2019t be spoofed from a phone.' },
+  { t: 204900, type: 'highlight', selector: '#schedule-editor', position: 'top',
     label: 'schedule editor',
     text: 'Running late? Update the schedule here, every attendee sees the new times within seconds.',
     duration: 5000 },
-  { t: 211500, type: 'highlight', selector: '#admin-feed', position: 'top',
+  { t: 210100, type: 'highlight', selector: '#admin-feed', position: 'top',
     label: 'activity feed',
     text: 'Every visit + every vote, live. Votes batched 300ms so you see "Jane voted 1st/2nd/3rd" as one line.',
     duration: 5500 },
-  { t: 217200, type: 'narrator', duration: 5000,
+  { t: 215800, type: 'narrator', duration: 5000,
     text: 'From a 30-person department day to a 2,000-attendee mid-conference \u2014 same app, same experience. No per-attendee fees.' },
-  { t: 222400, type: 'narrator', duration: 4500,
-    text: 'Every past event stays live. Browse any year\u2019s posters, any winner, any ceremony \u2014 permanent archive.' },
-  { t: 227100, type: 'feed', actor: '_rand_', action: 'voted (Peer Impact)' },
-  { t: 229400, type: 'feed', actor: '_rand_', action: 'added a note to poster #18' },
-  { t: 231700, type: 'feed', actor: '_rand_', action: 'logged 16 visits total' },
 
-  // ═══ 7. Phase flip + 45s grace ══════════════════════════════
-  { t: 234500, type: 'narrator', kind: 'gold', duration: 3500,
+  // ═══ 8. 3:00 PM \u2014 Voting closes ═════════════════════════════════
+  { t: 221000, type: 'narrator', kind: 'gold', duration: 3500,
     text: 'All 108 votes in \u2014 time to close voting.' },
-  { t: 238300, type: 'scene-card', text: '7.  Closing the ceremony', duration: 1700 },
-  { t: 240100, type: 'narrator', duration: 4500,
+  { t: 224800, type: 'scene-card', text: '3:00 PM  ·  Voting closes', duration: 1800 },
+  { t: 226800, type: 'narrator', duration: 4500,
     text: '45-second grace after the flip \u2014 nobody mid-vote loses their ballot.' },
-  { t: 244700, type: 'mode', mode: 'results' },
-  { t: 245300, type: 'confetti' },
 
-  // ═══ 8. Results podium ══════════════════════════════════════
-  { t: 246500, type: 'scene-card', text: '8.  Winners \u2014 live', duration: 1800 },
-  { t: 248500, type: 'narrator', kind: 'gold', duration: 5000,
+  // ═══ 9. 4:00 PM \u2014 Awards ceremony ══════════════════════════════
+  { t: 231500, type: 'mode', mode: 'results' },
+  { t: 232100, type: 'confetti' },
+  { t: 233000, type: 'scene-card', text: '4:00 PM  ·  Awards ceremony', duration: 1800 },
+  { t: 235200, type: 'narrator', kind: 'gold', duration: 5000,
     text: '\ud83c\udfc6 Distinguished Poster #1: Zhiming Li (#13) \u2014 17 points (4\u00d71st \u00b7 2\u00d72nd \u00b7 1\u00d73rd).' },
-  { t: 253700, type: 'highlight', selector: '.podium__slot--1', position: 'bottom',
+  { t: 240500, type: 'highlight', selector: '.podium__slot--1', position: 'bottom',
     label: 'gold pedestal',
-    text: 'Staggered reveal \u2014 3rd place first, then 2nd, then 1st at the 3-second mark. Confetti sync\'d to the top slot.',
+    text: 'Staggered reveal \u2014 3rd place first, then 2nd, then 1st at the 3-second mark. Confetti sync\u2019d to the top slot.',
     duration: 5500 },
-  { t: 259300, type: 'highlight', selector: 'hr.results-divider', position: 'bottom',
+  { t: 246100, type: 'highlight', selector: 'hr.results-divider', position: 'bottom',
     label: 'two tracks',
-    text: 'Below the first podium: the Peer Impact section. Both tracks render at the same moment on every attendee\u2019s phone.',
+    text: 'Below the first podium: the Peer Impact section. Both tracks render at the same moment on every phone.',
     duration: 5500 },
-  { t: 264900, type: 'narrator', kind: 'gold', duration: 5000,
+  { t: 251700, type: 'narrator', kind: 'gold', duration: 5000,
     text: '\ud83c\udfc6 Peer Impact #1: Mohak Desai (#22) \u2014 15 points (5\u00d71st-place).' },
-  { t: 270000, type: 'narrator', duration: 4500,
+  { t: 256800, type: 'narrator', duration: 4500,
     text: 'Both celebrations + confetti fire live. No refresh. No polling.' },
+  { t: 261400, type: 'narrator', duration: 4500,
+    text: 'Every past event stays live. Browse any year\u2019s posters, any winner, any ceremony \u2014 permanent archive.' },
 
-  // ═══ 9. Trivia \u2014 keepsake callback ═══════════════════════════
-  { t: 274700, type: 'scene-card', text: '9.  Trivia \u2014 the facts come back', duration: 1800 },
-  { t: 276500, type: 'narrator', duration: 4000,
+  // ═══ 10. Post-event \u2014 Trivia callback ═════════════════════════
+  { t: 266000, type: 'scene-card', text: 'Post-event  ·  Trivia recap', duration: 1800 },
+  { t: 268000, type: 'narrator', duration: 4000,
     text: 'Every polymer fact printed at check-in becomes a trivia question. Engagement that travels past the session.' },
-  { t: 280700, type: 'trivia' },
+  { t: 272200, type: 'trivia' },
 
-  // ═══ 10. CTA \u2014 Formspree ═════════════════════════════════════
+  // ═══ 11. CTA \u2014 Formspree ═════════════════════════════════════
   // Trivia pauses the timer. CTA fires when trivia completes.
-  { t: 281000, type: 'cta-overlay' },
+  { t: 272500, type: 'cta-overlay' },
   { t: 600000, type: 'loop' },
 ]
