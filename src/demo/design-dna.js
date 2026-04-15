@@ -1,21 +1,19 @@
 // "Design DNA" reel — the bespoke-brand-system proof moment.
 //
-// Plays as a full-bleed overlay: headline on top, a staggered mosaic of real
-// NERPG Spring 2026 brand pieces (logo, poster, cards, ballot, nametag, cert,
-// poster-ID, recap cover), closing on a personal tagline.
-//
-// The point isn't any one asset — it's that every piece shares one design
-// language. That coherence is the thing the buyer is being sold.
+// Each piece of the brand system shown full-frame, cross-fading on the same
+// dark backdrop so the shared design language (navy + gold + one logo) reads
+// across every artifact. The point isn't any single piece — it's that they
+// all share one voice.
 
 const PIECES = [
-  { src: 'brand/logo.png',         label: 'Brand mark',        span: 'wide' },
-  { src: 'brand/polymer-art.png',  label: 'Event recap cover', span: 'tall' },
-  { src: 'brand/poster.png',       label: 'Event poster',      span: 'tall' },
-  { src: 'brand/checkin-card.png', label: 'Check-in cards',    span: 'normal' },
-  { src: 'brand/nametag.png',      label: 'Name tags',         span: 'normal' },
-  { src: 'brand/ballot.png',       label: 'Paper ballot',      span: 'normal' },
-  { src: 'brand/poster-id.png',    label: 'Poster IDs',        span: 'normal' },
-  { src: 'brand/certificate.png',  label: 'Winner certificate', span: 'wide' },
+  { src: 'brand/poster.png',       label: 'Event poster' },
+  { src: 'brand/polymer-art.png',  label: 'Recap cover' },
+  { src: 'brand/checkin-card.png', label: 'Check-in cards' },
+  { src: 'brand/ballot.png',       label: 'Award ballot' },
+  { src: 'brand/nametag.png',      label: 'Organizer name tags' },
+  { src: 'brand/poster-id.png',    label: 'Presenter poster IDs' },
+  { src: 'brand/certificate.png',  label: 'Winner certificate' },
+  { src: 'brand/logo.png',         label: 'Brand mark' },
 ]
 
 export function showDesignDna(durationMs = 11000) {
@@ -25,13 +23,15 @@ export function showDesignDna(durationMs = 11000) {
   overlay.className = 'design-dna'
   overlay.innerHTML = `
     <div class="design-dna__backdrop"></div>
-    <div class="design-dna__inner">
-      <div class="design-dna__eyebrow">One brand system</div>
-      <h2 class="design-dna__headline">Every piece, on purpose.</h2>
-      <div class="design-dna__grid">
+    <div class="design-dna__stage">
+      <div class="design-dna__header">
+        <div class="design-dna__eyebrow">One brand system</div>
+        <h2 class="design-dna__headline">Every piece, on purpose.</h2>
+      </div>
+      <div class="design-dna__slides">
         ${PIECES.map((p, i) => `
-          <figure class="design-dna__tile design-dna__tile--${p.span}" style="--i: ${i}">
-            <img src="${p.src}" alt="${p.label}" loading="eager">
+          <figure class="design-dna__slide" data-idx="${i}">
+            <div class="design-dna__frame"><img src="${p.src}" alt="${p.label}" loading="eager"></div>
             <figcaption>${p.label}</figcaption>
           </figure>
         `).join('')}
@@ -44,13 +44,34 @@ export function showDesignDna(durationMs = 11000) {
   document.body.appendChild(overlay)
   requestAnimationFrame(() => overlay.classList.add('design-dna--visible'))
 
-  const t = setTimeout(() => {
+  const slides = Array.from(overlay.querySelectorAll('.design-dna__slide'))
+  const footer = overlay.querySelector('.design-dna__footer')
+
+  // Reserve ~600ms header-in at the start and ~1400ms footer-hold at the end.
+  const headIn = 700
+  const tailHold = 1500
+  const slideWindow = Math.max(700, Math.floor((durationMs - headIn - tailHold) / slides.length))
+
+  const timers = []
+  slides.forEach((slide, i) => {
+    const onAt = headIn + i * slideWindow
+    timers.push(setTimeout(() => slide.classList.add('design-dna__slide--active'), onAt))
+    // Fade out the previous slide ~80ms before the next lands for a clean cross-fade.
+    if (i > 0) {
+      timers.push(setTimeout(() => slides[i - 1].classList.remove('design-dna__slide--active'), onAt - 80))
+    }
+  })
+  // Fade the footer in near the end, keep the last slide visible under it.
+  timers.push(setTimeout(() => footer.classList.add('design-dna__footer--visible'), headIn + slides.length * slideWindow - 600))
+
+  // Cleanup
+  timers.push(setTimeout(() => {
     overlay.classList.remove('design-dna--visible')
-    setTimeout(() => overlay.remove(), 600)
-  }, durationMs)
+    setTimeout(() => overlay.remove(), 500)
+  }, durationMs))
 
   return () => {
-    clearTimeout(t)
+    timers.forEach(clearTimeout)
     overlay.remove()
   }
 }
