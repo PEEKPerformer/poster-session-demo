@@ -2,7 +2,8 @@
 //
 // The story: I pulled every attendee's stats from the event data (visits,
 // votes, dwell time), wrote a personalized callout per presenter, printed
-// the cards, then handwrote a note on top of every one before mailing.
+// the cards, handwrote a note on top of every one, and hand-delivered them
+// to each presenter.
 //
 // Shown as a slide sequence so the viewer can actually read a couple of the
 // custom stat callouts (they're the proof — not the generic "thank you").
@@ -34,7 +35,7 @@ export function showThankYouReel(durationMs = 9500) {
         `).join('')}
       </div>
       <p class="design-dna__footer">
-        Every card: stats pulled from the event data + <strong>a handwritten note I add myself</strong> before it goes in the mail.
+        Every card: stats pulled from the event data + <strong>a handwritten note</strong>, then <strong>hand-delivered</strong> to each presenter.
       </p>
     </div>
   `
