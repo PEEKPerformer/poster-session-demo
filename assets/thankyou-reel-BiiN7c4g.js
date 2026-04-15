@@ -6,15 +6,15 @@ const c=[{src:"brand/thankyou-a.png",caption:'Florence — "12 ballots, the most
         <h2 class="design-dna__headline">Personal thank-yous. Handwritten.</h2>
       </div>
       <div class="design-dna__slides">
-        ${c.map((t,n)=>`
+        ${c.map((a,n)=>`
           <figure class="design-dna__slide" data-idx="${n}">
-            <div class="design-dna__frame"><img src="${t.src}" alt="Thank-you card sample ${n+1}" loading="eager"></div>
-            <figcaption>${t.caption}</figcaption>
+            <div class="design-dna__frame"><img src="${a.src}" alt="Thank-you card sample ${n+1}" loading="eager"></div>
+            <figcaption>${a.caption}</figcaption>
           </figure>
         `).join("")}
       </div>
       <p class="design-dna__footer">
-        Every card: stats pulled from the event data + <strong>a handwritten note I add myself</strong> before it goes in the mail.
+        Every card: stats pulled from the event data + <strong>a handwritten note</strong>, then <strong>hand-delivered</strong> to each presenter.
       </p>
     </div>
-  `,document.body.appendChild(e),requestAnimationFrame(()=>e.classList.add("design-dna--visible"));const a=Array.from(e.querySelectorAll(".design-dna__slide")),l=e.querySelector(".design-dna__footer"),i=600,o=Math.max(1400,Math.floor((d-i-1700)/a.length)),s=[];return a.forEach((t,n)=>{const r=i+n*o;s.push(setTimeout(()=>t.classList.add("design-dna__slide--active"),r)),n>0&&s.push(setTimeout(()=>a[n-1].classList.remove("design-dna__slide--active"),r-80))}),s.push(setTimeout(()=>l.classList.add("design-dna__footer--visible"),i+a.length*o-400)),s.push(setTimeout(()=>{e.classList.remove("design-dna--visible"),setTimeout(()=>e.remove(),500)},d)),()=>{s.forEach(clearTimeout),e.remove()}}export{h as showThankYouReel};
+  `,document.body.appendChild(e),requestAnimationFrame(()=>e.classList.add("design-dna--visible"));const t=Array.from(e.querySelectorAll(".design-dna__slide")),l=e.querySelector(".design-dna__footer"),i=600,o=Math.max(1400,Math.floor((d-i-1700)/t.length)),s=[];return t.forEach((a,n)=>{const r=i+n*o;s.push(setTimeout(()=>a.classList.add("design-dna__slide--active"),r)),n>0&&s.push(setTimeout(()=>t[n-1].classList.remove("design-dna__slide--active"),r-80))}),s.push(setTimeout(()=>l.classList.add("design-dna__footer--visible"),i+t.length*o-400)),s.push(setTimeout(()=>{e.classList.remove("design-dna--visible"),setTimeout(()=>e.remove(),500)},d)),()=>{s.forEach(clearTimeout),e.remove()}}export{h as showThankYouReel};
