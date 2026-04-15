@@ -9,9 +9,9 @@ body.has-demo-banner { padding-top: 56px; }
 
 /* When the demo is active, nudge the poster modal down so the app's own
    modal header isn't hidden behind the banner+tabs. */
-body.has-demo-banner .poster-modal { top: 104px; }
+body.has-demo-banner .poster-modal { top: 120px; }
 @media (max-width: 640px) {
-  body.has-demo-banner .poster-modal { top: 148px; }
+  body.has-demo-banner .poster-modal { top: 164px; }
 }
 
 .demo-banner {
@@ -406,14 +406,17 @@ body.has-demo-banner .poster-modal { top: 104px; }
 .demo-cta-form__success { color: #7fd29a; font-weight: 600; padding: 0.5rem 0; }
 
 /* ── Tabs row ────────────────────────────────────────── */
-body.has-demo-tabs.has-demo-banner { padding-top: 96px; }
+/* Tabs sit below the banner + scrub bar. The scrub-bar thumb (12px) extends
+   below the banner inner, so tabs must clear it — otherwise the thumb sits
+   on top of "Jump to" and tab labels. */
+body.has-demo-tabs.has-demo-banner { padding-top: 112px; }
 @media (max-width: 640px) {
-  body.has-demo-tabs.has-demo-banner { padding-top: 140px; }
+  body.has-demo-tabs.has-demo-banner { padding-top: 156px; }
 }
 
 .demo-tabs {
   position: fixed;
-  top: 48px;
+  top: 64px;
   left: 0;
   right: 0;
   z-index: 999;
@@ -428,7 +431,7 @@ body.has-demo-tabs.has-demo-banner { padding-top: 96px; }
   -webkit-overflow-scrolling: touch;
 }
 @media (max-width: 640px) {
-  .demo-tabs { top: 92px; }
+  .demo-tabs { top: 108px; }
 }
 .demo-tabs__label {
   color: #8892b0;
