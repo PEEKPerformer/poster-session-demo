@@ -692,6 +692,13 @@ body.has-demo-prompt { padding-bottom: 84px; }
 @media (max-width: 640px) {
   body.has-demo-prompt { padding-bottom: 96px; }
 }
+/* The poster modal is position:fixed with inset:0 — body padding doesn't
+   push its footer. Lift the modal bottom so its Close button isn't hidden
+   by the prompt pill. */
+body.has-demo-prompt .poster-modal { bottom: 84px; }
+@media (max-width: 640px) {
+  body.has-demo-prompt .poster-modal { bottom: 96px; }
+}
 
 .demo-prompt {
   position: fixed;
