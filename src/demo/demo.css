@@ -515,6 +515,13 @@ body.has-demo-tabs.has-demo-banner { padding-top: 96px; }
 .demo-highlight-tip__body { font-size: 0.88rem; line-height: 1.4; }
 
 /* ── Interactive prompt (tour pauses, asks viewer to do a thing) ── */
+/* When a prompt is up, reserve bottom space so page CTAs (Submit Votes,
+   Confirm, etc.) scroll above the pill rather than getting hidden. */
+body.has-demo-prompt { padding-bottom: 84px; }
+@media (max-width: 640px) {
+  body.has-demo-prompt { padding-bottom: 96px; }
+}
+
 .demo-prompt {
   position: fixed;
   left: 50%;

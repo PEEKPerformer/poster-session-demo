@@ -102,8 +102,9 @@ export function startDemo() {
 
   // Clean any leftover overlays from a prior run.
   document.querySelectorAll(
-    '.welcome-overlay, .demo-title-card, .demo-scene-card, .demo-cta-overlay, .demo-trivia, .poster-modal, .demo-feed, .demo-highlight-spot, .demo-highlight-tip, .demo-resume-chip'
+    '.welcome-overlay, .demo-title-card, .demo-scene-card, .demo-cta-overlay, .demo-trivia, .poster-modal, .demo-feed, .demo-highlight-spot, .demo-highlight-tip, .demo-resume-chip, .demo-prompt'
   ).forEach(n => n.remove())
+  document.body.classList.remove('has-demo-prompt')
   clearHighlight()
 
   nextIndex = 0
@@ -155,8 +156,9 @@ export function seekDemo(targetMs) {
 
   // Clear visual ephemera
   document.querySelectorAll(
-    '.demo-toast, .demo-scene-card, .demo-feed, .demo-title-card, .welcome-overlay, .poster-modal, .demo-cta-overlay, .demo-trivia, .demo-resume-chip'
+    '.demo-toast, .demo-scene-card, .demo-feed, .demo-title-card, .welcome-overlay, .poster-modal, .demo-cta-overlay, .demo-trivia, .demo-resume-chip, .demo-prompt'
   ).forEach(n => n.remove())
+  document.body.classList.remove('has-demo-prompt')
   clearHighlight()
 
   // Reset viewer state to base then re-apply state-changing events up to target
@@ -457,6 +459,7 @@ function showActionPrompt(text, conditionKey, timeoutMs, onComplete) {
     <button type="button" class="demo-prompt__skip">Skip \u2192</button>
   `
   document.body.appendChild(prompt)
+  document.body.classList.add('has-demo-prompt')
   requestAnimationFrame(() => prompt.classList.add('demo-prompt--visible'))
 
   const predicate = PREDICATES[conditionKey] || (() => false)
@@ -467,6 +470,7 @@ function showActionPrompt(text, conditionKey, timeoutMs, onComplete) {
     if (unsub) unsub()
     if (timeoutId) clearTimeout(timeoutId)
     prompt.classList.remove('demo-prompt--visible')
+    document.body.classList.remove('has-demo-prompt')
     setTimeout(() => prompt.remove(), 250)
     onComplete()
   }
