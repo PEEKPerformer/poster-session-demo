@@ -102,7 +102,7 @@ export function startDemo() {
 
   // Clean any leftover overlays from a prior run.
   document.querySelectorAll(
-    '.welcome-overlay, .demo-title-card, .demo-scene-card, .demo-cta-overlay, .demo-trivia, .poster-modal, .demo-feed, .demo-highlight-spot, .demo-highlight-tip, .demo-resume-chip, .demo-prompt, .design-dna'
+    '.welcome-overlay, .demo-title-card, .demo-scene-card, .demo-cta-overlay, .demo-trivia, .poster-modal, .demo-feed, .demo-highlight-spot, .demo-highlight-tip, .demo-resume-chip, .demo-prompt, .design-dna, .thankyou-reel'
   ).forEach(n => n.remove())
   document.body.classList.remove('has-demo-prompt')
   clearHighlight()
@@ -156,7 +156,7 @@ export function seekDemo(targetMs) {
 
   // Clear visual ephemera
   document.querySelectorAll(
-    '.demo-toast, .demo-scene-card, .demo-feed, .demo-title-card, .welcome-overlay, .poster-modal, .demo-cta-overlay, .demo-trivia, .demo-resume-chip, .demo-prompt, .design-dna'
+    '.demo-toast, .demo-scene-card, .demo-feed, .demo-title-card, .welcome-overlay, .poster-modal, .demo-cta-overlay, .demo-trivia, .demo-resume-chip, .demo-prompt, .design-dna, .thankyou-reel'
   ).forEach(n => n.remove())
   document.body.classList.remove('has-demo-prompt')
   clearHighlight()
@@ -308,7 +308,11 @@ function handleEvent(ev) {
       break
 
     case 'design-dna':
-      import('./design-dna.js').then(m => m.showDesignDna(ev.duration || 11000))
+      import('./design-dna.js').then(m => m.showDesignDna(ev.duration || 14000))
+      break
+
+    case 'thankyou-reel':
+      import('./thankyou-reel.js').then(m => m.showThankYouReel(ev.duration || 10500))
       break
 
     case 'loop':

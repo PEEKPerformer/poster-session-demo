@@ -248,14 +248,21 @@ export const TIMELINE = [
   { t: 281300, type: 'narrator', duration: 4500,
     text: 'Every past event stays live. Browse any year — permanent archive you can point alumni and funders at.' },
 
-  // ═══ 10. Post-event — Trivia callback ═════════════════════════
-  { t: 285900, type: 'scene-card', text: 'Post-event  ·  Trivia recap', duration: 1800 },
-  { t: 287900, type: 'narrator', duration: 4000,
-    text: 'Every polymer fact printed on the check-in card becomes a trivia question. Engagement that travels past the session.' },
-  { t: 292100, type: 'trivia' },
+  // ═══ 10. Post-event — Personal thank-yous ═════════════════════
+  // The part of the engagement you only see days after the event: a custom
+  // stat callout per presenter, drawn from their real event data — then a
+  // handwritten note I add myself before each one goes in the mail.
+  { t: 286000, type: 'scene-card', text: 'Post-event  ·  Personal thank-yous', duration: 1800 },
+  { t: 287900, type: 'thankyou-reel', duration: 10500 },
 
-  // ═══ 11. CTA — Formspree ═════════════════════════════════════
+  // ═══ 11. Trivia callback ══════════════════════════════════════
+  { t: 298900, type: 'scene-card', text: 'Post-event  ·  Trivia recap', duration: 1800 },
+  { t: 300900, type: 'narrator', duration: 4000,
+    text: 'Every polymer fact printed on the check-in card becomes a trivia question. Engagement that travels past the session.' },
+  { t: 305100, type: 'trivia' },
+
+  // ═══ 12. CTA — Formspree ═════════════════════════════════════
   // Trivia pauses the timer. CTA fires when trivia completes.
-  { t: 292400, type: 'cta-overlay' },
+  { t: 305400, type: 'cta-overlay' },
   { t: 900000, type: 'loop' },
 ]

@@ -22,6 +22,7 @@ export function showCtaOverlay() {
         <li><strong>Custom-themed app</strong> — codenames, voting rules, award tracks tailored to your event</li>
         <li><strong>Printed asset pack</strong> — check-in cards, ballots, name tags, poster IDs, winner certs — delivered ready to print</li>
         <li><strong>I run the admin panel day-of</strong> — you shake hands; I flip phases, fix typos, announce winners</li>
+        <li><strong>Personal thank-you cards</strong> — custom stat callout per presenter from event data, plus a handwritten note I add myself</li>
         <li><strong>Full data export</strong> — attendees, visits, ballots, tallies — yours to keep</li>
       </ul>
 
