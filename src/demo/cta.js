@@ -9,18 +9,26 @@ export function showCtaOverlay() {
   overlay.className = 'demo-cta-overlay'
   overlay.innerHTML = `
     <div class="demo-cta-overlay__card">
-      <h2 class="demo-cta-overlay__headline">Your event could run like this.</h2>
+      <div class="demo-cta-overlay__eyebrow">Design + operate your next poster session</div>
+      <h2 class="demo-cta-overlay__headline">Let's design your event.</h2>
       <p class="demo-cta-overlay__sub">
-        QR-code check-in, offline visit logging, ranked peer voting, live
-        results — no email signups, no per-attendee fees.
+        Not a subscription. An engagement. I design the brand, build a custom-themed app,
+        deliver your printed asset pack, and run the admin panel the day of.
       </p>
+
+      <div class="demo-cta-overlay__section-label">What you get</div>
       <ul class="demo-cta-overlay__list">
-        <li>Pre-printed cards for registered attendees &middot; on-screen QR for walk-ups</li>
-        <li>Offline-first — absorbed 106 Wi-Fi flips at Spring 2026 with zero data loss</li>
-        <li>Two parallel award tracks (Distinguished + Peer Impact)</li>
-        <li>Post-event spotlight that drove 43 return visitors over the following weeks</li>
-        <li>Polymer-fact trivia / Q&amp;A game that reuses each attendee's codename</li>
+        <li><strong>Custom brand system</strong> — logo art, poster, ballots, certificates, name tags, app theme — one visual language</li>
+        <li><strong>Custom-themed app</strong> — codenames, voting rules, award tracks tailored to your event</li>
+        <li><strong>Printed asset pack</strong> — check-in cards, ballots, name tags, poster IDs, winner certs — delivered ready to print</li>
+        <li><strong>I run the admin panel day-of</strong> — you shake hands; I flip phases, fix typos, announce winners</li>
+        <li><strong>Full data export</strong> — attendees, visits, ballots, tallies — yours to keep</li>
       </ul>
+
+      <p class="demo-cta-overlay__scarcity">
+        I take <strong>3–4 engagements per semester</strong>. Pricing scales with event size —
+        a 30-person department day and a 2,000-person mid-conference are different conversations.
+      </p>
 
       <form class="demo-cta-form" action="${FORMSPREE_ENDPOINT}" method="POST" novalidate>
         <p class="demo-cta-form__intro">Tell me about your event — I'll reply within a day.</p>
@@ -40,7 +48,10 @@ export function showCtaOverlay() {
         <p class="demo-cta-form__status" role="status"></p>
       </form>
 
-      <p class="demo-cta-overlay__footnote">Built by <a href="https://bfer.land" target="_blank" rel="noopener">Brenden Ferland</a>. NERPG Spring 2026 shown in accelerated time.</p>
+      <p class="demo-cta-overlay__footnote">
+        Designed, built, and run by <a href="https://bfer.land" target="_blank" rel="noopener">Brenden Ferland</a>
+        — polymer PhD, UConn. NERPG Spring 2026 shown in accelerated time.
+      </p>
     </div>
   `
   document.body.appendChild(overlay)

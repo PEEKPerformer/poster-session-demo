@@ -317,7 +317,9 @@ body.has-demo-banner .poster-modal { top: 120px; }
 }
 .demo-cta-overlay--visible { opacity: 1; }
 .demo-cta-overlay__card {
-  max-width: 560px;
+  max-width: 600px;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
   background: linear-gradient(140deg, #11182a 0%, #1a2240 100%);
   border: 1px solid rgba(255, 174, 0, 0.4);
   border-radius: 14px;
@@ -325,11 +327,40 @@ body.has-demo-banner .poster-modal { top: 120px; }
   color: #dfe5ff;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
-.demo-cta-overlay__headline {
-  font-size: 1.6rem;
-  margin: 0 0 0.5rem;
+.demo-cta-overlay__eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: #ffae00;
+  margin-bottom: 0.4rem;
 }
+.demo-cta-overlay__headline {
+  font-size: 1.7rem;
+  margin: 0 0 0.6rem;
+  color: #f6f8ff;
+  letter-spacing: -0.01em;
+}
+.demo-cta-overlay__section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8892b0;
+  margin: 1rem 0 0.5rem;
+}
+.demo-cta-overlay__scarcity {
+  font-size: 0.85rem;
+  color: #bcc3de;
+  margin: 1rem 0 1.2rem;
+  padding: 0.7rem 0.9rem;
+  background: rgba(255, 174, 0, 0.08);
+  border-left: 3px solid #ffae00;
+  border-radius: 4px;
+  line-height: 1.45;
+}
+.demo-cta-overlay__scarcity strong { color: #ffae00; }
+.demo-cta-overlay__list strong { color: #ffae00; font-weight: 700; }
 .demo-cta-overlay__sub {
   margin: 0 0 1.25rem;
   font-size: 0.95rem;
@@ -404,6 +435,142 @@ body.has-demo-banner .poster-modal { top: 120px; }
 .demo-cta-form__status { font-size: 0.8rem; color: #8892b0; margin: 0; }
 .demo-cta-form__status--err { color: #ff8e8e; }
 .demo-cta-form__success { color: #7fd29a; font-weight: 600; padding: 0.5rem 0; }
+
+/* ── Design DNA reel ─────────────────────────────────────
+   Full-bleed overlay that reveals the brand system as a
+   staggered mosaic. The point isn't any single piece — it's
+   that they share one design language. ───────────────── */
+.design-dna {
+  position: fixed;
+  inset: 0;
+  z-index: 1080; /* above banner/tabs/modal, below CTA overlay (1100) */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.design-dna--visible { opacity: 1; }
+
+.design-dna__backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 174, 0, 0.18), transparent 55%),
+    radial-gradient(circle at 80% 90%, rgba(120, 180, 255, 0.14), transparent 55%),
+    linear-gradient(160deg, #0b1220 0%, #0b1328 55%, #050a16 100%);
+}
+.design-dna__inner {
+  position: relative;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  overflow: hidden;
+}
+.design-dna__eyebrow {
+  color: #ffae00;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: dna-fade-in 0.6s 0.1s ease forwards;
+}
+.design-dna__headline {
+  color: #f6f8ff;
+  font-size: clamp(1.35rem, 3.2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-align: center;
+  opacity: 0;
+  animation: dna-fade-in 0.6s 0.25s ease forwards;
+}
+.design-dna__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0.55rem;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  align-content: center;
+}
+.design-dna__tile {
+  position: relative;
+  margin: 0;
+  grid-column: span 4;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 174, 0, 0.18);
+  border-radius: 8px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(14px) scale(0.96);
+  animation: dna-tile-in 0.7s calc(0.55s + var(--i) * 0.13s) cubic-bezier(0.25, 0.9, 0.3, 1.1) forwards;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+.design-dna__tile--wide { grid-column: span 6; }
+.design-dna__tile--tall { grid-column: span 4; grid-row: span 2; }
+.design-dna__tile img {
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  background: #fff;
+  border-radius: 4px;
+}
+.design-dna__tile figcaption {
+  position: absolute;
+  bottom: 6px;
+  left: 8px;
+  right: 8px;
+  color: #ffae00;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, transparent, rgba(11, 18, 32, 0.88) 45%);
+  padding: 0.8rem 0.3rem 0.3rem;
+  border-radius: 0 0 4px 4px;
+  text-align: center;
+}
+.design-dna__footer {
+  color: #dfe5ff;
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  text-align: center;
+  margin: 0;
+  padding-top: 0.5rem;
+  opacity: 0;
+  animation: dna-fade-in 0.8s 2.2s ease forwards;
+}
+.design-dna__footer strong {
+  color: #ffae00;
+  font-weight: 700;
+}
+
+@keyframes dna-fade-in {
+  to { opacity: 1; }
+}
+@keyframes dna-tile-in {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 640px) {
+  .design-dna__inner { padding: 1.25rem 0.75rem 1rem; gap: 0.6rem; }
+  .design-dna__grid { grid-template-columns: repeat(6, 1fr); gap: 0.4rem; }
+  .design-dna__tile { grid-column: span 3; }
+  .design-dna__tile--wide { grid-column: span 6; }
+  .design-dna__tile--tall { grid-column: span 3; grid-row: span 2; }
+  .design-dna__tile figcaption { font-size: 0.55rem; letter-spacing: 0.1em; }
+}
 
 /* ── Tabs row ────────────────────────────────────────── */
 /* Tabs sit below the banner + scrub bar. The scrub-bar thumb (12px) extends

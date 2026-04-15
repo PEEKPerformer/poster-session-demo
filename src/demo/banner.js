@@ -11,10 +11,10 @@ export function mountDemoBanner() {
     <div class="demo-banner__inner">
       <div class="demo-banner__badge">
         <span class="demo-banner__pulse"></span>
-        <span class="demo-banner__label">LIVE DEMO</span>
+        <span class="demo-banner__label">REPLAY</span>
       </div>
       <div class="demo-banner__title">
-        NERPG Spring 2026 replay — watch a real poster session play out
+        NERPG Spring 2026 · designed + run by Brenden Ferland
       </div>
       <div class="demo-banner__controls">
         <button type="button" class="demo-banner__btn" data-action="toggle" aria-label="Pause">
@@ -30,7 +30,7 @@ export function mountDemoBanner() {
         </select>
       </div>
       <button type="button" class="demo-banner__cta" data-action="cta">
-        Want this for your event? &rarr;
+        Let's design your event &rarr;
       </button>
     </div>
     <div class="demo-banner__progress" role="slider" tabindex="0" aria-label="Demo progress (click or drag to seek)">

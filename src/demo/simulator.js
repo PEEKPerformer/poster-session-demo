@@ -102,7 +102,7 @@ export function startDemo() {
 
   // Clean any leftover overlays from a prior run.
   document.querySelectorAll(
-    '.welcome-overlay, .demo-title-card, .demo-scene-card, .demo-cta-overlay, .demo-trivia, .poster-modal, .demo-feed, .demo-highlight-spot, .demo-highlight-tip, .demo-resume-chip, .demo-prompt'
+    '.welcome-overlay, .demo-title-card, .demo-scene-card, .demo-cta-overlay, .demo-trivia, .poster-modal, .demo-feed, .demo-highlight-spot, .demo-highlight-tip, .demo-resume-chip, .demo-prompt, .design-dna'
   ).forEach(n => n.remove())
   document.body.classList.remove('has-demo-prompt')
   clearHighlight()
@@ -156,7 +156,7 @@ export function seekDemo(targetMs) {
 
   // Clear visual ephemera
   document.querySelectorAll(
-    '.demo-toast, .demo-scene-card, .demo-feed, .demo-title-card, .welcome-overlay, .poster-modal, .demo-cta-overlay, .demo-trivia, .demo-resume-chip, .demo-prompt'
+    '.demo-toast, .demo-scene-card, .demo-feed, .demo-title-card, .welcome-overlay, .poster-modal, .demo-cta-overlay, .demo-trivia, .demo-resume-chip, .demo-prompt, .design-dna'
   ).forEach(n => n.remove())
   document.body.classList.remove('has-demo-prompt')
   clearHighlight()
@@ -305,6 +305,10 @@ function handleEvent(ev) {
 
     case 'cta-overlay':
       import('./cta.js').then(m => m.showCtaOverlay())
+      break
+
+    case 'design-dna':
+      import('./design-dna.js').then(m => m.showDesignDna(ev.duration || 11000))
       break
 
     case 'loop':
