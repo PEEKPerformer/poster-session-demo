@@ -28,11 +28,29 @@ let pausedElapsed = 0
 let speed = 1
 let nextIndex = 0
 let paused = false
+// Controls (tabs, scrub, content-touch-to-pause) are LOCKED during the
+// scripted tour — otherwise viewers fight the simulator and land in broken
+// states. Unlocked via an 'unlock' timeline event near the CTA.
+let locked = true
 const listeners = new Set()
+const lockListeners = new Set()
 
 export function onSimState(fn) {
   listeners.add(fn)
   return () => listeners.delete(fn)
+}
+
+export function isDemoLocked() { return locked }
+export function onDemoLockChange(fn) {
+  lockListeners.add(fn)
+  return () => lockListeners.delete(fn)
+}
+export function unlockDemo() {
+  if (!locked) return
+  locked = false
+  document.body.classList.remove('demo-locked')
+  lockListeners.forEach(fn => fn(false))
+  showToast('🔓 Your turn — tap any tab to explore', 'gold', 5500)
 }
 
 function emit() {
@@ -106,6 +124,11 @@ export function startDemo() {
   ).forEach(n => n.remove())
   document.body.classList.remove('has-demo-prompt')
   clearHighlight()
+
+  // Reset lock — restart puts controls back under the scripted tour.
+  locked = true
+  document.body.classList.add('demo-locked')
+  lockListeners.forEach(fn => fn(true))
 
   nextIndex = 0
   pausedElapsed = 0
@@ -315,6 +338,10 @@ function handleEvent(ev) {
       import('./thankyou-reel.js').then(m => m.showThankYouReel(ev.duration || 10500))
       break
 
+    case 'unlock':
+      unlockDemo()
+      break
+
     case 'loop':
       setTimeout(() => restartDemo(), 0)
       break
@@ -357,6 +384,8 @@ function loop() {
 export function attachInteractionPause() {
   document.addEventListener('pointerdown', (e) => {
     if (paused) return
+    // While locked, the tour is in charge — don't pause on content touches.
+    if (locked) return
     // Don't pause on interactions with the demo controls themselves.
     if (e.target.closest('.demo-banner, .demo-tabs, .demo-resume-chip, .demo-cta-overlay, .demo-trivia, .demo-prompt')) return
     // If the tour is asking the viewer to do something (semi-interactive

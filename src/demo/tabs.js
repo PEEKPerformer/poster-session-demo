@@ -3,7 +3,7 @@
 // resume the tour from wherever it left off.
 
 import { setDemoMode } from './mode.js'
-import { pauseDemo } from './simulator.js'
+import { pauseDemo, isDemoLocked } from './simulator.js'
 
 const TABS = [
   { mode: 'gallery', label: 'Gallery', sub: 'Browse posters' },
@@ -12,6 +12,8 @@ const TABS = [
   { mode: 'admin',   label: 'Admin',   sub: 'Live dashboard' },
   { mode: 'results', label: 'Results', sub: 'Winners podium' },
 ]
+
+let lockNoticeAt = 0
 
 export function mountDemoTabs() {
   const bar = document.createElement('div')
@@ -31,6 +33,15 @@ export function mountDemoTabs() {
   bar.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-mode]')
     if (!btn) return
+    if (isDemoLocked()) {
+      // Throttle the notice so repeated clicks don't spam the UI.
+      const now = performance.now()
+      if (now - lockNoticeAt > 3000) {
+        lockNoticeAt = now
+        showLockNotice()
+      }
+      return
+    }
     pauseDemo()
     setDemoMode(btn.dataset.mode)
   })
@@ -41,4 +52,17 @@ export function mountDemoTabs() {
       b.classList.toggle('demo-tab--active', b.dataset.mode === mode)
     })
   })
+}
+
+function showLockNotice() {
+  document.querySelectorAll('.demo-lock-notice').forEach(n => n.remove())
+  const note = document.createElement('div')
+  note.className = 'demo-lock-notice'
+  note.textContent = '🔒 Watch the tour — controls unlock at the end'
+  document.body.appendChild(note)
+  requestAnimationFrame(() => note.classList.add('demo-lock-notice--visible'))
+  setTimeout(() => {
+    note.classList.remove('demo-lock-notice--visible')
+    setTimeout(() => note.remove(), 300)
+  }, 2600)
 }

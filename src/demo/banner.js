@@ -1,7 +1,7 @@
 // Persistent demo banner at the top of the viewport. Shows the 'LIVE DEMO'
 // label, a progress bar, play/pause/restart, speed picker, and a CTA.
 
-import { pauseDemo, resumeDemo, restartDemo, setDemoSpeed, getDemoSpeed, onSimState, seekDemo, getTotalDuration } from './simulator.js'
+import { pauseDemo, resumeDemo, restartDemo, setDemoSpeed, getDemoSpeed, onSimState, seekDemo, getTotalDuration, isDemoLocked } from './simulator.js'
 import { showCtaOverlay } from './cta.js'
 
 export function mountDemoBanner() {
@@ -54,6 +54,7 @@ export function mountDemoBanner() {
     seekDemo(progressFromEvent(e) * total)
   }
   progressBar.addEventListener('pointerdown', (e) => {
+    if (isDemoLocked()) return
     e.preventDefault()
     scrubbing = true
     progressBar.setPointerCapture(e.pointerId)
@@ -67,6 +68,7 @@ export function mountDemoBanner() {
     try { progressBar.releasePointerCapture(e.pointerId) } catch {}
   })
   progressBar.addEventListener('keydown', (e) => {
+    if (isDemoLocked()) return
     const total = getTotalDuration()
     const elapsed = parseFloat(progressBar.dataset.elapsed || '0')
     const step = total * 0.05 // 5% per arrow key

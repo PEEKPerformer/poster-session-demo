@@ -261,8 +261,11 @@ export const TIMELINE = [
     text: 'Every polymer fact printed on the check-in card becomes a trivia question. Engagement that travels past the session.' },
   { t: 305100, type: 'trivia' },
 
-  // ═══ 12. CTA — Formspree ═════════════════════════════════════
-  // Trivia pauses the timer. CTA fires when trivia completes.
+  // ═══ 12. CTA + unlock ════════════════════════════════════════
+  // Trivia pauses the timer. CTA fires when trivia completes. Unlock fires
+  // alongside — the scripted pitch is done, viewers can now tap any tab to
+  // verify claims on their own.
   { t: 305400, type: 'cta-overlay' },
+  { t: 305600, type: 'unlock' },
   { t: 900000, type: 'loop' },
 ]
