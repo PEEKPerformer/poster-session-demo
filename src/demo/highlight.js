@@ -5,6 +5,10 @@ let activeSpotlight = null
 let activeTooltip = null
 let activeTimer = null
 
+// Viewport-safe zones — banner + tabs reserve ~140px at top, modest bottom margin.
+const TOP_SAFE = 140
+const BOTTOM_SAFE = 80
+
 export function clearHighlight() {
   if (activeSpotlight) activeSpotlight.remove()
   if (activeTooltip) activeTooltip.remove()
@@ -31,46 +35,81 @@ export function highlight(selector, text, opts = {}) {
   // Wait a frame for any scroll-triggered layout to settle.
   requestAnimationFrame(() => {
     const rect = target.getBoundingClientRect()
+    const vpH = window.innerHeight
+    const vpW = window.innerWidth
 
-    // Spotlight — an absolutely-positioned block that uses an oversized
-    // box-shadow to dim the rest of the page, leaving a "hole" on the target.
+    // If the target is taller than the viewport (minus safe zones + room for a
+    // tooltip), clamp the spotlight to a viewport-centered slice. Without this,
+    // the box-shadow dim extends off-screen and the tooltip ends up in limbo.
+    const maxH = Math.max(120, vpH - TOP_SAFE - BOTTOM_SAFE - 120 /* tooltip */)
+    const eff = { top: rect.top, left: rect.left, width: rect.width, height: rect.height }
+    if (rect.height > maxH) {
+      eff.top = TOP_SAFE + (vpH - TOP_SAFE - BOTTOM_SAFE - maxH) / 2
+      eff.height = maxH
+    }
+    // Also clamp width in case of super-wide elements (unlikely but safe).
+    const maxW = vpW - 24
+    if (rect.width > maxW) {
+      eff.left = 12
+      eff.width = maxW
+    }
+    const effBottom = eff.top + eff.height
+    const effRight  = eff.left + eff.width
+
+    // Spotlight — absolute block with an oversized box-shadow to dim the
+    // rest of the page and leave a "hole" on the target.
     const spot = document.createElement('div')
     spot.className = 'demo-highlight-spot'
     const pad = 8
-    spot.style.top    = `${rect.top    + window.scrollY - pad}px`
-    spot.style.left   = `${rect.left   + window.scrollX - pad}px`
-    spot.style.width  = `${rect.width  + pad * 2}px`
-    spot.style.height = `${rect.height + pad * 2}px`
+    spot.style.top    = `${eff.top    + window.scrollY - pad}px`
+    spot.style.left   = `${eff.left   + window.scrollX - pad}px`
+    spot.style.width  = `${eff.width  + pad * 2}px`
+    spot.style.height = `${eff.height + pad * 2}px`
     document.body.appendChild(spot)
 
     // Tooltip
     const tip = document.createElement('div')
-    tip.className = `demo-highlight-tip demo-highlight-tip--${position}`
+    tip.className = 'demo-highlight-tip'
     tip.innerHTML = `
       ${label ? `<span class="demo-highlight-tip__label">${label}</span>` : ''}
       <div class="demo-highlight-tip__body">${text}</div>
     `
     document.body.appendChild(tip)
-
-    // Position tooltip relative to spotlight
     const tipRect = tip.getBoundingClientRect()
     const margin = 16
+
+    // Pick a position that actually fits. Flip to the opposite side if the
+    // requested side would push the tooltip off-screen.
+    let pos = position
+    const fitsTop    = eff.top - margin - tipRect.height >= TOP_SAFE
+    const fitsBottom = effBottom + margin + tipRect.height <= vpH - BOTTOM_SAFE
+    const fitsLeft   = eff.left - margin - tipRect.width >= 12
+    const fitsRight  = effRight  + margin + tipRect.width <= vpW - 12
+    if (pos === 'top'    && !fitsTop    && fitsBottom) pos = 'bottom'
+    else if (pos === 'bottom' && !fitsBottom && fitsTop)   pos = 'top'
+    else if (pos === 'left'   && !fitsLeft   && fitsRight) pos = 'right'
+    else if (pos === 'right'  && !fitsRight  && fitsLeft)  pos = 'left'
+    tip.classList.add(`demo-highlight-tip--${pos}`)
+
     let tipTop, tipLeft
-    if (position === 'bottom') {
-      tipTop  = rect.bottom + window.scrollY + margin
-      tipLeft = rect.left   + window.scrollX + rect.width / 2 - tipRect.width / 2
-    } else if (position === 'top') {
-      tipTop  = rect.top    + window.scrollY - margin - tipRect.height
-      tipLeft = rect.left   + window.scrollX + rect.width / 2 - tipRect.width / 2
-    } else if (position === 'right') {
-      tipTop  = rect.top    + window.scrollY + rect.height / 2 - tipRect.height / 2
-      tipLeft = rect.right  + window.scrollX + margin
+    if (pos === 'bottom') {
+      tipTop  = effBottom + window.scrollY + margin
+      tipLeft = eff.left + window.scrollX + eff.width / 2 - tipRect.width / 2
+    } else if (pos === 'top') {
+      tipTop  = eff.top - margin - tipRect.height + window.scrollY
+      tipLeft = eff.left + window.scrollX + eff.width / 2 - tipRect.width / 2
+    } else if (pos === 'right') {
+      tipTop  = eff.top + window.scrollY + eff.height / 2 - tipRect.height / 2
+      tipLeft = effRight + window.scrollX + margin
     } else {
-      tipTop  = rect.top    + window.scrollY + rect.height / 2 - tipRect.height / 2
-      tipLeft = rect.left   + window.scrollX - margin - tipRect.width
+      tipTop  = eff.top + window.scrollY + eff.height / 2 - tipRect.height / 2
+      tipLeft = eff.left + window.scrollX - margin - tipRect.width
     }
-    // Clamp to viewport
-    tipLeft = Math.max(12, Math.min(window.innerWidth - tipRect.width - 12, tipLeft))
+    // Final clamp to keep the tooltip inside the safe window.
+    tipLeft = Math.max(12, Math.min(vpW - tipRect.width - 12, tipLeft))
+    const minTipTop = TOP_SAFE + window.scrollY
+    const maxTipTop = vpH - BOTTOM_SAFE - tipRect.height + window.scrollY
+    tipTop = Math.max(minTipTop, Math.min(maxTipTop, tipTop))
     tip.style.top  = `${tipTop}px`
     tip.style.left = `${tipLeft}px`
 
